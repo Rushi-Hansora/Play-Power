@@ -41,9 +41,9 @@ export function Header() {
           <button
             onClick={openConcierge}
             aria-label="Open AI Travel Concierge"
-            className="hidden lg:flex items-center gap-1.5 px-3.5 py-2 text-xs font-semibold rounded-full bg-gradient-to-r from-purple-600 to-indigo-600 text-white shadow-xs hover:opacity-95 transition"
+            className="hidden lg:flex items-center gap-2 px-3.5 py-2 text-xs font-semibold rounded-full border border-gray-300 text-[#222222] hover:border-gray-900 hover:shadow-xs transition bg-white"
           >
-            <Sparkles className="w-3.5 h-3.5" />
+            <Sparkles className="w-3.5 h-3.5 text-[#FF385C]" />
             <span>AI Concierge</span>
           </button>
 
