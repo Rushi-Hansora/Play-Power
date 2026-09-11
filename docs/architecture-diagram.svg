@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="100%" height="100%" style="background:#0F172A; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+  <!-- Title & Header -->
+  <text x="600" y="50" fill="#F8FAFC" font-size="24" font-weight="bold" text-anchor="middle">Airbnb-Scale Production Architecture &amp; Scaling Strategy</text>
+  <text x="600" y="80" fill="#94A3B8" font-size="14" text-anchor="middle">Full-Stack Vacation Rental Marketplace — PlayPower Labs Technical Design</text>
+
+  <!-- Client & Edge Layer -->
+  <rect x="50" y="120" width="1100" height="130" rx="12" fill="#1E293B" stroke="#334155" stroke-width="1.5" />
+  <text x="70" y="150" fill="#38BDF8" font-size="16" font-weight="bold">1. Client &amp; Edge Delivery Layer</text>
+
+  <rect x="80" y="170" width="220" height="60" rx="8" fill="#0F172A" stroke="#38BDF8" stroke-width="1" />
+  <text x="190" y="195" fill="#F1F5F9" font-size="13" font-weight="600" text-anchor="middle">React 19 SPA (Vite 8)</text>
+  <text x="190" y="215" fill="#94A3B8" font-size="11" text-anchor="middle">Tailwind CSS + Motion + TanStack</text>
+
+  <rect x="330" y="170" width="230" height="60" rx="8" fill="#0F172A" stroke="#38BDF8" stroke-width="1" />
+  <text x="445" y="195" fill="#F1F5F9" font-size="13" font-weight="600" text-anchor="middle">Global Anycast Edge CDN</text>
+  <text x="445" y="215" fill="#94A3B8" font-size="11" text-anchor="middle">Cloudflare / Vercel Edge Cache</text>
+
+  <rect x="590" y="170" width="240" height="60" rx="8" fill="#0F172A" stroke="#38BDF8" stroke-width="1" />
+  <text x="710" y="195" fill="#F1F5F9" font-size="13" font-weight="600" text-anchor="middle">API Gateway &amp; WAF</text>
+  <text x="710" y="215" fill="#94A3B8" font-size="11" text-anchor="middle">Rate Limiting + SSL Termination</text>
+
+  <rect x="860" y="170" width="260" height="60" rx="8" fill="#0F172A" stroke="#C084FC" stroke-width="1" />
+  <text x="990" y="195" fill="#F3E8FF" font-size="13" font-weight="600" text-anchor="middle">AI Concierge Agent Drawer</text>
+  <text x="990" y="215" fill="#C084FC" font-size="11" text-anchor="middle">Natural Language Constraint Extractor</text>
+
+  <!-- Connectors -->
+  <line x1="600" y1="250" x2="600" y2="290" stroke="#38BDF8" stroke-width="2" stroke-dasharray="4" />
+
+  <!-- Backend Services Layer -->
+  <rect x="50" y="290" width="1100" height="170" rx="12" fill="#1E293B" stroke="#334155" stroke-width="1.5" />
+  <text x="70" y="320" fill="#4ADE80" font-size="16" font-weight="bold">2. Microservices &amp; Application Layer (Express 5 / Node.js)</text>
+
+  <rect x="80" y="340" width="190" height="100" rx="8" fill="#0F172A" stroke="#4ADE80" stroke-width="1" />
+  <text x="175" y="365" fill="#F1F5F9" font-size="13" font-weight="600" text-anchor="middle">Listing Service</text>
+  <text x="175" y="385" fill="#94A3B8" font-size="11" text-anchor="middle">Listing Details &amp; Metadata</text>
+  <text x="175" y="405" fill="#94A3B8" font-size="11" text-anchor="middle">Photos &amp; Amenities Catalog</text>
+  <text x="175" y="425" fill="#64748B" font-size="10" text-anchor="middle">REST /api/v1/listings</text>
+
+  <rect x="290" y="340" width="190" height="100" rx="8" fill="#0F172A" stroke="#4ADE80" stroke-width="1" />
+  <text x="385" y="365" fill="#F1F5F9" font-size="13" font-weight="600" text-anchor="middle">Reservation Engine</text>
+  <text x="385" y="385" fill="#94A3B8" font-size="11" text-anchor="middle">Availability Calendar</text>
+  <text x="385" y="405" fill="#94A3B8" font-size="11" text-anchor="middle">Pricing &amp; Fee Calculations</text>
+  <text x="385" y="425" fill="#64748B" font-size="10" text-anchor="middle">REST /api/v1/bookings</text>
+
+  <rect x="500" y="340" width="190" height="100" rx="8" fill="#0F172A" stroke="#4ADE80" stroke-width="1" />
+  <text x="595" y="365" fill="#F1F5F9" font-size="13" font-weight="600" text-anchor="middle">Reviews &amp; Trust</text>
+  <text x="595" y="385" fill="#94A3B8" font-size="11" text-anchor="middle">Ratings Aggregation</text>
+  <text x="595" y="405" fill="#94A3B8" font-size="11" text-anchor="middle">Host Verification Badges</text>
+  <text x="595" y="425" fill="#64748B" font-size="10" text-anchor="middle">REST /api/v1/reviews</text>
+
+  <rect x="710" y="340" width="200" height="100" rx="8" fill="#0F172A" stroke="#C084FC" stroke-width="1" />
+  <text x="810" y="365" fill="#F3E8FF" font-size="13" font-weight="600" text-anchor="middle">AI Concierge Engine</text>
+  <text x="810" y="385" fill="#C084FC" font-size="11" text-anchor="middle">Constraint Extraction</text>
+  <text x="810" y="405" fill="#C084FC" font-size="11" text-anchor="middle">Multi-Factor Candidate Ranking</text>
+  <text x="810" y="425" fill="#64748B" font-size="10" text-anchor="middle">REST /api/v1/ai/concierge</text>
+
+  <rect x="930" y="340" width="190" height="100" rx="8" fill="#0F172A" stroke="#F59E0B" stroke-width="1" />
+  <text x="1025" y="365" fill="#F1F5F9" font-size="13" font-weight="600" text-anchor="middle">Auth &amp; Security</text>
+  <text x="1025" y="385" fill="#94A3B8" font-size="11" text-anchor="middle">JWT in HttpOnly Cookie</text>
+  <text x="1025" y="405" fill="#94A3B8" font-size="11" text-anchor="middle">Bcrypt Hashing &amp; Roles</text>
+  <text x="1025" y="425" fill="#64748B" font-size="10" text-anchor="middle">REST /api/v1/auth</text>
+
+  <!-- Connectors -->
+  <line x1="600" y1="460" x2="600" y2="500" stroke="#4ADE80" stroke-width="2" stroke-dasharray="4" />
+
+  <!-- Data, Storage & Observability Layer -->
+  <rect x="50" y="500" width="1100" height="250" rx="12" fill="#1E293B" stroke="#334155" stroke-width="1.5" />
+  <text x="70" y="530" fill="#F43F5E" font-size="16" font-weight="bold">3. Persistence, Caching, Search &amp; Observability Layer</text>
+
+  <rect x="80" y="550" width="240" height="85" rx="8" fill="#0F172A" stroke="#10B981" stroke-width="1" />
+  <text x="200" y="575" fill="#A7F3D0" font-size="13" font-weight="600" text-anchor="middle">MongoDB (Mongoose ODM)</text>
+  <text x="200" y="595" fill="#94A3B8" font-size="11" text-anchor="middle">Replica Sets &amp; GeoSpatial Indexes</text>
+  <text x="200" y="615" fill="#64748B" font-size="10" text-anchor="middle">Listings, Bookings, User Schemas</text>
+
+  <rect x="340" y="550" width="240" height="85" rx="8" fill="#0F172A" stroke="#EF4444" stroke-width="1" />
+  <text x="460" y="575" fill="#FECACA" font-size="13" font-weight="600" text-anchor="middle">Distributed Redis Cache</text>
+  <text x="460" y="595" fill="#94A3B8" font-size="11" text-anchor="middle">Listing Cache + Session Storage</text>
+  <text x="460" y="615" fill="#64748B" font-size="10" text-anchor="middle">Rate Limiting Token Buckets</text>
+
+  <rect x="600" y="550" width="250" height="85" rx="8" fill="#0F172A" stroke="#F59E0B" stroke-width="1" />
+  <text x="725" y="575" fill="#FDE68A" font-size="13" font-weight="600" text-anchor="middle">Atlas Search / OpenSearch</text>
+  <text x="725" y="595" fill="#94A3B8" font-size="11" text-anchor="middle">Fuzzy Search &amp; Vector Embeddings</text>
+  <text x="725" y="615" fill="#64748B" font-size="10" text-anchor="middle">Geo-Distance &amp; Full-Text Index</text>
+
+  <rect x="870" y="550" width="250" height="85" rx="8" fill="#0F172A" stroke="#06B6D4" stroke-width="1" />
+  <text x="995" y="575" fill="#CFFAFE" font-size="13" font-weight="600" text-anchor="middle">Cloud Object Storage (S3 / GCS)</text>
+  <text x="995" y="595" fill="#94A3B8" font-size="11" text-anchor="middle">Image Thumbnails &amp; Photo Tour</text>
+  <text x="995" y="615" fill="#64748B" font-size="10" text-anchor="middle">Responsive WebP/AVIF Delivery</text>
+
+  <!-- Observability & DevOps Bar at bottom -->
+  <rect x="80" y="655" width="1040" height="70" rx="8" fill="#0F172A" stroke="#6366F1" stroke-width="1" />
+  <text x="600" y="680" fill="#C7D2FE" font-size="13" font-weight="bold" text-anchor="middle">DevOps, CI/CD &amp; Observability Foundation</text>
+  <text x="600" y="705" fill="#94A3B8" font-size="11" text-anchor="middle">GitHub Actions (Lint, Vitest, Vite Build, Playwright E2E) · Structured Logging · Prometheus Metrics (/health &amp; /api/v1/metrics)</text>
+</svg>
