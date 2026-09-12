@@ -15,24 +15,41 @@ export function BookingProvider({ children, listing = mockListing }) {
     pets: 0,
   });
 
+  const [activeProperty, setActiveProperty] = useState(listing);
   const [isDatePickerOpen, setIsDatePickerOpen] = useState(false);
   const [isGuestSelectorOpen, setIsGuestSelectorOpen] = useState(false);
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
   const [isDiscountClaimed, setIsDiscountClaimed] = useState(false);
+  const [isOwnerDiscountApproved, setIsOwnerDiscountApproved] = useState(false);
+  const [paymentMethod, setPaymentMethod] = useState("card"); // 'card' | 'upi' | 'netbanking'
 
   const totalGuests = guests.adults + guests.children;
   const nights = useMemo(() => calculateNights(checkIn, checkOut), [checkIn, checkOut]);
 
-  // Pricing math
-  const basePricePerNight = listing.pricing.basePricePerNight;
+  // Pricing math using activeProperty
+  const basePricePerNight = activeProperty?.pricing?.basePricePerNight || activeProperty?.pricePerNight || listing.pricing.basePricePerNight;
   const nightsTotal = basePricePerNight * nights;
-  const cleaningFee = listing.pricing.cleaningFee;
+  const cleaningFee = activeProperty?.pricing?.cleaningFee || 1200;
   const serviceFee = Math.round(nightsTotal * 0.098); // ~9.8% service fee
-  const discountAmount = isDiscountClaimed ? Math.round(nightsTotal * 0.1) : 0;
+  const hasDiscount = isDiscountClaimed || isOwnerDiscountApproved;
+  const discountAmount = hasDiscount ? Math.round(nightsTotal * 0.1) : 0;
   const totalBeforeTaxes = nightsTotal - discountAmount + cleaningFee + serviceFee;
 
   const toggleDiscount = () => {
     setIsDiscountClaimed((prev) => !prev);
+  };
+
+  const toggleOwnerDiscount = () => {
+    setIsOwnerDiscountApproved((prev) => !prev);
+  };
+
+  const selectPropertyForBooking = (property) => {
+    if (property) {
+      setActiveProperty(property);
+    } else {
+      setActiveProperty(listing);
+    }
+    setIsBookingModalOpen(true);
   };
 
   const updateGuests = (type, delta) => {
@@ -42,7 +59,8 @@ export function BookingProvider({ children, listing = mockListing }) {
       // Adults minimum 1
       if (type === "adults" && updated < 1) return prev;
       // Maximum capacity constraint
-      if ((type === "adults" || type === "children") && prev.adults + prev.children + delta > listing.capacity.guests) {
+      const maxAllowed = activeProperty?.capacity?.guests || listing.capacity.guests;
+      if ((type === "adults" || type === "children") && prev.adults + prev.children + delta > maxAllowed) {
         return prev;
       }
       return { ...prev, [type]: updated };
@@ -50,7 +68,11 @@ export function BookingProvider({ children, listing = mockListing }) {
   };
 
   const value = {
-    listing,
+    listing: activeProperty,
+    defaultListing: listing,
+    activeProperty,
+    setActiveProperty,
+    selectPropertyForBooking,
     checkIn,
     setCheckIn,
     checkOut,
@@ -65,8 +87,13 @@ export function BookingProvider({ children, listing = mockListing }) {
     serviceFee,
     totalBeforeTaxes,
     isDiscountClaimed,
+    isOwnerDiscountApproved,
+    setIsOwnerDiscountApproved,
+    toggleOwnerDiscount,
     discountAmount,
     toggleDiscount,
+    paymentMethod,
+    setPaymentMethod,
     isDatePickerOpen,
     setIsDatePickerOpen,
     isGuestSelectorOpen,
@@ -85,3 +112,4 @@ export function useBooking() {
   }
   return context;
 }
+
