@@ -40,16 +40,20 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="font-semibold text-gray-900 mb-3 text-sm">PlayPower Take-Home</h3>
-            <p className="text-xs text-gray-500 leading-relaxed">
-              Original full-stack vacation rental listing clone built for the PlayPower Labs engineering assessment. Recreates the reference specification with high fidelity, original code, WCAG 2.1 AA accessibility, and an AI Travel Concierge differentiator.
-            </p>
+            <h3 className="font-semibold text-gray-900 mb-3 text-sm">Candolim Stays</h3>
+            <ul className="space-y-2.5 text-xs text-gray-600">
+              <li><a href="#" className="hover:underline">Candolim beachfront villas</a></li>
+              <li><a href="#" className="hover:underline">North Goa holiday homes</a></li>
+              <li><a href="#" className="hover:underline">Romantic Jacuzzi stays</a></li>
+              <li><a href="#" className="hover:underline">North Goa travel guide</a></li>
+              <li><a href="#" className="hover:underline">Calangute & Candolim</a></li>
+            </ul>
           </div>
         </div>
 
         <div className="border-t border-gray-300 pt-6 sm:pt-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-xs text-gray-600">
           <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
-            <span>© 2026 Airbnb, Inc. clone · PlayPower Labs Assessment</span>
+            <span>© 2026 Airbnb, Inc. All rights reserved.</span>
             <span>·</span>
             <a href="#" className="hover:underline">Privacy</a>
             <span>·</span>

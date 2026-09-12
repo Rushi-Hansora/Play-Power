@@ -122,12 +122,14 @@ export const mockListing = {
     {
       room: "Bedroom 1",
       bedType: "1 queen bed",
-      icon: "bed-double"
+      icon: "bed-double",
+      image: "https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=800&q=80"
     },
     {
       room: "Living room",
       bedType: "1 sofa bed",
-      icon: "sofa"
+      icon: "sofa",
+      image: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=800&q=80"
     }
   ],
   amenities: [

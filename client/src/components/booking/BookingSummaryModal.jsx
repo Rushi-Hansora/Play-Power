@@ -106,12 +106,12 @@ export function BookingSummaryModal() {
             </div>
           </div>
 
-          {/* Safe Prototype Notice */}
-          <div className="flex items-start gap-3 p-3.5 bg-amber-50 border border-amber-200 rounded-xl text-xs text-amber-900">
-            <Shield className="w-5 h-5 text-amber-700 shrink-0 mt-0.5" />
+          {/* AirCover Protection Notice */}
+          <div className="flex items-start gap-3 p-3.5 bg-gray-50 border border-gray-200 rounded-xl text-xs text-gray-700">
+            <Shield className="w-5 h-5 text-[#FF385C] shrink-0 mt-0.5" />
             <div>
-              <span className="font-semibold">Safe Evaluation Prototype: </span>
-              This take-home assignment prototype simulates reservation confirmation without executing real financial transactions.
+              <span className="font-semibold text-gray-900">Protected by AirCover: </span>
+              Every booking includes free protection from Host cancellations, listing inaccuracies, and other issues like trouble checking in.
             </div>
           </div>
 

@@ -13,18 +13,28 @@ export function SleepingArrangements({ arrangements }) {
         {arrangements.map((item, index) => (
           <div
             key={index}
-            className="p-6 border border-gray-200 rounded-2xl flex flex-col justify-between hover:border-gray-400 transition"
+            className="border border-gray-200 rounded-2xl overflow-hidden hover:border-gray-400 transition bg-white shadow-2xs group"
           >
-            <div className="mb-6">
-              {item.icon === "bed-double" ? (
-                <BedDouble className="w-7 h-7 text-gray-800" />
-              ) : (
-                <Sofa className="w-7 h-7 text-gray-800" />
-              )}
-            </div>
-            <div>
-              <h3 className="font-semibold text-base text-gray-900 mb-1">{item.room}</h3>
-              <p className="text-sm text-gray-500">{item.bedType}</p>
+            {item.image && (
+              <div className="aspect-16/10 overflow-hidden bg-gray-100">
+                <img
+                  src={item.image}
+                  alt={item.room}
+                  className="w-full h-full object-cover transition duration-300 group-hover:scale-104 group-hover:brightness-95"
+                  loading="lazy"
+                />
+              </div>
+            )}
+            <div className="p-4 sm:p-5">
+              <div className="mb-3">
+                {item.icon === "bed-double" ? (
+                  <BedDouble className="w-6 h-6 text-gray-800 stroke-[1.8]" />
+                ) : (
+                  <Sofa className="w-6 h-6 text-gray-800 stroke-[1.8]" />
+                )}
+              </div>
+              <h3 className="font-semibold text-base text-gray-900 mb-0.5">{item.room}</h3>
+              <p className="text-xs sm:text-sm text-gray-500">{item.bedType}</p>
             </div>
           </div>
         ))}

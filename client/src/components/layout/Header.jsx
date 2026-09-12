@@ -15,9 +15,9 @@ export function Header() {
           className="flex items-center cursor-pointer select-none shrink-0"
         >
           <img
-            src="/airbnb-logo.jpg"
+            src="/airbnb-logo-cropped.png"
             alt="Airbnb"
-            className="h-8 sm:h-9 md:h-10 w-auto object-contain mix-blend-multiply"
+            className="h-7 sm:h-8 md:h-8.5 w-auto object-contain transition hover:opacity-95"
           />
         </div>
 
