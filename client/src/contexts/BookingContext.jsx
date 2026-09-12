@@ -68,9 +68,10 @@ export function BookingProvider({ children, listing = mockListing }) {
   };
 
   const value = {
-    listing: activeProperty,
-    defaultListing: listing,
-    activeProperty,
+    listing: defaultListing,
+    defaultListing,
+    activeProperty: activeProperty || defaultListing,
+    bookedStay: activeProperty || defaultListing,
     setActiveProperty,
     selectPropertyForBooking,
     checkIn,

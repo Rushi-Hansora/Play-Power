@@ -24,10 +24,12 @@ const REVIEW_PILLS = [
   { id: "balcony", label: "Balcony", count: 3, emoji: "🌅" },
 ];
 
-export function ReviewsSection({ ratings, reviews }) {
+export function ReviewsSection({ ratings = { overall: 4.96, reviewCount: 19 }, reviews = [] }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [expandedReviews, setExpandedReviews] = useState({});
   const [selectedPill, setSelectedPill] = useState(null);
+
+  const safeReviews = reviews || [];
 
   const toggleExpand = (id) => {
     setExpandedReviews((prev) => ({ ...prev, [id]: !prev[id] }));
@@ -43,10 +45,10 @@ export function ReviewsSection({ ratings, reviews }) {
   ];
 
   const filteredReviews = selectedPill
-    ? reviews.filter((r) =>
+    ? safeReviews.filter((r) =>
         r.comment.toLowerCase().includes(selectedPill.toLowerCase())
       )
-    : reviews;
+    : safeReviews;
 
   return (
     <section id="reviews" className="py-8 border-b border-gray-200" aria-label="Guest reviews">

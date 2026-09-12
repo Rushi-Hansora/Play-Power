@@ -18,6 +18,8 @@ import {
 export function BookingSummaryModal() {
   const {
     listing,
+    bookedStay,
+    activeProperty,
     checkIn,
     checkOut,
     nights,
@@ -35,6 +37,7 @@ export function BookingSummaryModal() {
     setIsBookingModalOpen,
   } = useBooking();
 
+  const currentStay = bookedStay || activeProperty || listing;
   const hasDiscount = Boolean(isDiscountClaimed || isOwnerDiscountApproved);
 
   // Payment tab selection: 'card' | 'upi' | 'netbanking'
@@ -90,8 +93,8 @@ export function BookingSummaryModal() {
     }, 300);
   };
 
-  const listingTitle = listing?.title || "Candolim Luxury Suite with Private Jacuzzi";
-  const listingImage = listing?.photos?.[0]?.url || "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=800&q=80";
+  const listingTitle = currentStay?.title || listing?.title || "Candolim Luxury Suite with Private Jacuzzi";
+  const listingImage = currentStay?.photos?.[0]?.url || currentStay?.image || listing?.photos?.[0]?.url || "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=800&q=80";
 
   return (
     <Modal

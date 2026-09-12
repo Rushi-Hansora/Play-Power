@@ -167,7 +167,8 @@ function getAmenityIcon(name, iconName, available = true) {
   }
 }
 
-export function SleepingArrangements({ arrangements }) {
+export function SleepingArrangements({ arrangements = [] }) {
+  const safeArrangements = arrangements || [];
   return (
     <section className="py-8 border-b border-gray-200" aria-label="Sleeping arrangements">
       <h2 className="text-xl md:text-[22px] font-semibold text-gray-900 mb-6">
@@ -175,7 +176,7 @@ export function SleepingArrangements({ arrangements }) {
       </h2>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        {arrangements.map((item, index) => (
+        {safeArrangements.map((item, index) => (
           <div
             key={index}
             className="border border-gray-200 rounded-2xl overflow-hidden hover:border-gray-400 transition bg-white shadow-2xs group"
@@ -208,11 +209,11 @@ export function SleepingArrangements({ arrangements }) {
   );
 }
 
-export function AmenitiesSection({ amenities }) {
+export function AmenitiesSection({ amenities = [] }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   // Top 10 featured amenities matching Image 3
-  const displayAmenities = amenities.slice(0, 10);
+  const displayAmenities = (amenities || []).slice(0, 10);
 
   return (
     <section id="amenities" className="py-8 border-b border-gray-200" aria-label="Amenities">
