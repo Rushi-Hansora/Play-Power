@@ -5,6 +5,8 @@ import { calculateNights } from "../utils/formatters";
 const BookingContext = createContext(null);
 
 export function BookingProvider({ children, listing = mockListing }) {
+  const defaultListing = listing || mockListing;
+
   // Default 5-night stay matching reference (10/18/2026 to 10/23/2026)
   const [checkIn, setCheckIn] = useState("2026-10-18");
   const [checkOut, setCheckOut] = useState("2026-10-23");
@@ -15,7 +17,7 @@ export function BookingProvider({ children, listing = mockListing }) {
     pets: 0,
   });
 
-  const [activeProperty, setActiveProperty] = useState(listing);
+  const [activeProperty, setActiveProperty] = useState(defaultListing);
   const [isDatePickerOpen, setIsDatePickerOpen] = useState(false);
   const [isGuestSelectorOpen, setIsGuestSelectorOpen] = useState(false);
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
@@ -47,7 +49,7 @@ export function BookingProvider({ children, listing = mockListing }) {
     if (property) {
       setActiveProperty(property);
     } else {
-      setActiveProperty(listing);
+      setActiveProperty(defaultListing);
     }
     setIsBookingModalOpen(true);
   };
