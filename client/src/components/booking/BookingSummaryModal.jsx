@@ -35,6 +35,8 @@ export function BookingSummaryModal() {
     setIsBookingModalOpen,
   } = useBooking();
 
+  const hasDiscount = Boolean(isDiscountClaimed || isOwnerDiscountApproved);
+
   // Payment tab selection: 'card' | 'upi' | 'netbanking'
   const [activeTab, setActiveTab] = useState("card");
 
