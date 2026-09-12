@@ -53,6 +53,11 @@
   - Updated host identity to Mirashya Homes with dedicated green brand avatar.
   - Built "More stays nearby" section matching Image 3 with 5 stays per page, carousel pagination (`1 / 3`), circular navigation arrows, and stay preview modals.
 
+- [x] **Phase 8 — Brand Logo Precision & Production Watermark Purge**:
+  - Tight-cropped official Airbnb logo to 558x176 bounding box, eliminating square whitespace padding and scaling cleanly across mobile, tablet, and desktop navbar margins.
+  - Added actual room interior photographs to "Where you'll sleep" cards (Bedroom 1 & Living room sofa bed).
+  - Purged all "PlayPower take-home assignment" watermarks and demo notices across Footer, Booking Confirmation Modal, and HTML metadata for 100% authentic Airbnb production look.
+
 ## Verification Status
 - Frontend Tests: `8 / 8 PASSED`
 - Frontend Production Build: `SUCCESS`
