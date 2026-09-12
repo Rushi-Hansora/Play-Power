@@ -1,6 +1,7 @@
 import React from "react";
 import { Header } from "../components/layout/Header";
 import { SubNavHeader } from "../components/layout/SubNavHeader";
+import { MobileReservationBar } from "../components/layout/MobileReservationBar";
 import { Footer } from "../components/layout/Footer";
 import { HeroGallery } from "../components/gallery/HeroGallery";
 import { PhotoTourModal } from "../components/gallery/PhotoTourModal";
@@ -20,20 +21,20 @@ export function App() {
   const { listing } = useBooking();
 
   return (
-    <div className="min-h-screen bg-white text-[#222222] flex flex-col font-sans">
+    <div className="min-h-screen bg-white text-[#222222] flex flex-col font-sans pb-28 lg:pb-0">
       {/* Global Top Header */}
       <Header />
 
-      {/* Sticky Subnav Bar with ScrollSpy (Photos, Amenities, Reviews, Location + Sticky Reserve) */}
+      {/* Sticky Subnav Bar with ScrollSpy (Photos, Amenities, Reviews, Location + Sticky Reserve on desktop) */}
       <SubNavHeader />
 
-      {/* Main Listing View Container */}
-      <main className="flex-1 max-w-7xl mx-auto px-6 md:px-10 w-full space-y-8">
+      {/* Main Listing View Container with Responsive Padding */}
+      <main className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 md:px-10 w-full space-y-6 sm:space-y-8">
         {/* P0: 5-Photo Hero Collage */}
         <HeroGallery />
 
         {/* 2-Column Core Layout: Property Details on Left, Sticky Reservation Card on Right */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 pt-2 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 pt-2 items-start">
           {/* Left Column (Details, Amenities, Sleep) */}
           <div className="lg:col-span-7 xl:col-span-8 space-y-2">
             <PropertyOverview listing={listing} />
@@ -41,8 +42,8 @@ export function App() {
             <AmenitiesSection amenities={listing.amenities} />
           </div>
 
-          {/* Right Column (Sticky Reservation Card) */}
-          <div className="lg:col-span-5 xl:col-span-4 lg:sticky lg:top-28">
+          {/* Right Column (Sticky Reservation Card on Desktop, Inline on Mobile) */}
+          <div className="lg:col-span-5 xl:col-span-4 lg:sticky lg:top-28 w-full">
             <StickyReservationCard />
           </div>
         </div>
@@ -59,6 +60,9 @@ export function App() {
       <BookingSummaryModal />
       <AIConciergeDrawer />
       <FloatingConciergeTrigger />
+
+      {/* Mobile Sticky Reservation Bar at Viewport Bottom (< lg) */}
+      <MobileReservationBar />
 
       {/* Footer */}
       <Footer />

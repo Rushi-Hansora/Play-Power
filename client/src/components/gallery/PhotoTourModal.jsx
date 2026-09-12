@@ -71,7 +71,7 @@ export function PhotoTourModal() {
       </div>
 
       {/* Main Categorized Photos Grid */}
-      <div className="max-w-5xl mx-auto px-6 py-8">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 py-5 sm:py-8">
         <div className="space-y-12">
           {Object.entries(categorizedPhotos).map(([category, items]) => (
             <section key={category} aria-labelledby={`cat-${category}`}>

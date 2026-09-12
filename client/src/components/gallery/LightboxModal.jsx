@@ -14,6 +14,23 @@ export function LightboxModal() {
   } = useGallery();
 
   const [isSaved, setIsSaved] = React.useState(false);
+  const touchStartX = React.useRef(null);
+
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = (e) => {
+    if (touchStartX.current === null) return;
+    const diff = touchStartX.current - e.changedTouches[0].clientX;
+    // Swipe left -> next photo; swipe right -> prev photo
+    if (diff > 45) {
+      nextPhoto();
+    } else if (diff < -45) {
+      prevPhoto();
+    }
+    touchStartX.current = null;
+  };
 
   if (!isLightboxOpen || !currentPhoto) return null;
 
@@ -22,15 +39,17 @@ export function LightboxModal() {
       role="dialog"
       aria-modal="true"
       aria-label="Single photo viewer"
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
       className="fixed inset-0 z-50 bg-black/95 flex flex-col justify-between select-none animate-in fade-in duration-200"
     >
       {/* Top Header */}
-      <div className="flex items-center justify-between px-6 py-5 text-white z-20">
+      <div className="flex items-center justify-between px-4 sm:px-6 py-4 sm:py-5 text-white z-20">
         {/* Close Button */}
         <button
           onClick={closeLightbox}
           aria-label="Close photo viewer"
-          className="flex items-center gap-2 p-2 rounded-full hover:bg-white/10 text-white transition cursor-pointer"
+          className="flex items-center gap-1.5 sm:gap-2 p-2 -ml-1 rounded-full hover:bg-white/10 text-white transition cursor-pointer"
         >
           <X className="w-5 h-5" />
           <span className="text-sm font-medium hidden sm:inline">Close</span>
@@ -76,14 +95,14 @@ export function LightboxModal() {
       </div>
 
       {/* Main Image Stage with Chevrons */}
-      <div className="relative flex-1 flex items-center justify-center px-4 sm:px-16 overflow-hidden">
+      <div className="relative flex-1 flex items-center justify-center px-2 sm:px-16 overflow-hidden">
         {/* Previous Button */}
         <button
           onClick={prevPhoto}
           aria-label="Previous photo"
-          className="absolute left-4 sm:left-8 z-20 p-3 rounded-full bg-white/10 hover:bg-white/20 text-white transition active:scale-95 cursor-pointer backdrop-blur-xs"
+          className="absolute left-2 sm:left-8 z-20 p-2 sm:p-3 rounded-full bg-white/15 sm:bg-white/10 hover:bg-white/20 text-white transition active:scale-95 cursor-pointer backdrop-blur-xs"
         >
-          <ChevronLeft className="w-6 h-6" />
+          <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
         </button>
 
         {/* Active Photo Container */}
@@ -100,19 +119,19 @@ export function LightboxModal() {
         <button
           onClick={nextPhoto}
           aria-label="Next photo"
-          className="absolute right-4 sm:right-8 z-20 p-3 rounded-full bg-white/10 hover:bg-white/20 text-white transition active:scale-95 cursor-pointer backdrop-blur-xs"
+          className="absolute right-2 sm:right-8 z-20 p-2 sm:p-3 rounded-full bg-white/15 sm:bg-white/10 hover:bg-white/20 text-white transition active:scale-95 cursor-pointer backdrop-blur-xs"
         >
-          <ChevronRight className="w-6 h-6" />
+          <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
         </button>
       </div>
 
       {/* Bottom Caption & Category Footer */}
-      <div className="px-6 py-6 text-center text-gray-300 text-sm max-w-2xl mx-auto z-20">
+      <div className="px-4 sm:px-6 py-4 sm:py-6 text-center text-gray-300 text-xs sm:text-sm max-w-2xl mx-auto z-20">
         {currentPhoto.caption && (
           <p className="font-normal text-white">{currentPhoto.caption}</p>
         )}
         {currentPhoto.category && (
-          <span className="text-xs text-gray-400 mt-1 inline-block">
+          <span className="text-[11px] sm:text-xs text-gray-400 mt-1 inline-block">
             Category: {currentPhoto.category}
           </span>
         )}

@@ -16,8 +16,8 @@ export function SubNavHeader() {
 
   useEffect(() => {
     const handleScroll = () => {
-      // Reveal sticky subnav when scrolled past 600px (hero gallery height)
-      if (window.scrollY > 600) {
+      // Reveal sticky subnav when scrolled past 400px
+      if (window.scrollY > 400) {
         setIsVisible(true);
       } else {
         setIsVisible(false);
@@ -45,7 +45,7 @@ export function SubNavHeader() {
     setActiveSection(id);
     const el = document.getElementById(id);
     if (el) {
-      const topOffset = 80;
+      const topOffset = 70;
       const elementPosition = el.getBoundingClientRect().top + window.pageYOffset;
       window.scrollTo({
         top: elementPosition - topOffset,
@@ -59,33 +59,33 @@ export function SubNavHeader() {
   return (
     <nav
       aria-label="Listing subsections navigation"
-      className="sticky top-0 z-20 bg-white border-b border-gray-200 shadow-xs animate-in slide-in-from-top-2 duration-150"
+      className="hidden md:block sticky top-20 z-20 bg-white border-b border-gray-200 shadow-xs animate-in slide-in-from-top-2 duration-150"
     >
-      <div className="max-w-7xl mx-auto px-6 md:px-10 h-20 flex items-center justify-between">
-        {/* Navigation Tabs */}
-        <div className="flex items-center gap-8 h-full">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-10 h-14 sm:h-16 md:h-20 flex items-center justify-between gap-4">
+        {/* Navigation Tabs — Scrollable on narrow mobile screens */}
+        <div className="flex items-center gap-5 sm:gap-8 h-full overflow-x-auto no-scrollbar py-1">
           {navItems.map((item) => {
             const isActive = activeSection === item.id;
             return (
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className={`relative h-full flex items-center text-sm font-semibold transition cursor-pointer ${
+                className={`relative h-full flex items-center text-xs sm:text-sm font-semibold transition cursor-pointer shrink-0 ${
                   isActive ? "text-[#222222]" : "text-gray-500 hover:text-gray-900"
                 }`}
               >
                 {item.label}
                 {isActive && (
-                  <span className="absolute bottom-0 left-0 right-0 h-1 bg-[#222222] rounded-t-sm" />
+                  <span className="absolute bottom-0 left-0 right-0 h-0.5 sm:h-1 bg-[#222222] rounded-t-sm" />
                 )}
               </button>
             );
           })}
         </div>
 
-        {/* Right Sticky Reservation Snapshot */}
-        <div className="flex items-center gap-4">
-          <div className="text-right hidden sm:block">
+        {/* Right Sticky Reservation Snapshot (Visible on md and up) */}
+        <div className="hidden md:flex items-center gap-4 shrink-0">
+          <div className="text-right">
             <div className="flex items-baseline justify-end gap-1.5">
               <span className="font-bold text-base text-[#222222]">
                 {formatCurrency(nightsTotal)}
@@ -98,7 +98,10 @@ export function SubNavHeader() {
               <span className="text-xs">★</span>
               <span className="font-semibold">{listing.ratings.overall}</span>
               <span className="text-gray-400">·</span>
-              <span className="text-gray-500 underline cursor-pointer" onClick={() => scrollToSection("reviews")}>
+              <span
+                className="text-gray-500 underline cursor-pointer"
+                onClick={() => scrollToSection("reviews")}
+              >
                 {listing.ratings.reviewCount} reviews
               </span>
             </div>
@@ -113,7 +116,7 @@ export function SubNavHeader() {
                 setIsBookingModalOpen(true);
               }
             }}
-            className="bg-gradient-to-r from-[#FF385C] to-[#E00B41] text-white px-7 py-3 rounded-lg font-semibold text-sm hover:brightness-105 active:scale-98 transition shadow-sm cursor-pointer"
+            className="bg-gradient-to-r from-[#FF385C] to-[#E00B41] text-white px-6 py-2.5 sm:px-7 sm:py-3 rounded-lg font-semibold text-xs sm:text-sm hover:brightness-105 active:scale-98 transition shadow-xs cursor-pointer"
           >
             Reserve
           </button>

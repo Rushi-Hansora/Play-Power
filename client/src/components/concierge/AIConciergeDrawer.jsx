@@ -76,23 +76,23 @@ export function AIConciergeDrawer() {
       aria-label="Travel Concierge Drawer"
       className="fixed inset-0 z-50 flex justify-end bg-black/50 backdrop-blur-xs animate-in fade-in duration-200"
     >
-      <div className="w-full max-w-xl bg-white h-full shadow-2xl flex flex-col animate-in slide-in-from-right duration-250">
+      <div className="w-full max-w-full sm:max-w-xl bg-white h-full shadow-2xl flex flex-col animate-in slide-in-from-right duration-250">
         {/* Header matching Airbnb styling */}
-        <div className="px-6 py-4 border-b border-gray-200 flex items-center justify-between bg-white">
-          <div className="flex items-center gap-3">
-            <div className="p-2 bg-gray-100 rounded-full text-[#FF385C]">
+        <div className="px-4 sm:px-6 py-3.5 sm:py-4 border-b border-gray-200 flex items-center justify-between bg-white">
+          <div className="flex items-center gap-2.5 sm:gap-3">
+            <div className="p-1.5 sm:p-2 bg-gray-100 rounded-full text-[#FF385C] shrink-0">
               <Sparkles className="w-4 h-4" />
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <h2 className="font-semibold text-lg text-[#222222] tracking-tight">
+                <h2 className="font-semibold text-base sm:text-lg text-[#222222] tracking-tight">
                   Travel Concierge
                 </h2>
-                <span className="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 bg-gray-100 text-gray-700 rounded-full border border-gray-200">
+                <span className="text-[9px] sm:text-[10px] uppercase font-bold tracking-wider px-1.5 sm:px-2 py-0.5 bg-gray-100 text-gray-700 rounded-full border border-gray-200">
                   AI Assistant
                 </span>
               </div>
-              <p className="text-xs text-gray-500">
+              <p className="text-[11px] sm:text-xs text-gray-500">
                 Personalized recommendations matching your criteria
               </p>
             </div>
@@ -101,14 +101,14 @@ export function AIConciergeDrawer() {
           <button
             onClick={closeConcierge}
             aria-label="Close concierge drawer"
-            className="p-2 text-gray-600 hover:text-gray-900 rounded-full hover:bg-gray-100 transition cursor-pointer"
+            className="p-1.5 sm:p-2 text-gray-600 hover:text-gray-900 rounded-full hover:bg-gray-100 transition cursor-pointer"
           >
             <X className="w-5 h-5" />
           </button>
         </div>
 
         {/* Scrollable Content Body */}
-        <div className="flex-1 overflow-y-auto p-6 space-y-6">
+        <div className="flex-1 overflow-y-auto p-4 sm:p-6 space-y-4 sm:space-y-6">
           {/* Popular Filter Prompt Pills */}
           <div>
             <div className="text-xs font-semibold text-gray-700 mb-2.5">
@@ -274,28 +274,28 @@ export function AIConciergeDrawer() {
         </div>
 
         {/* Bottom Search Bar modeled after Airbnb search pill */}
-        <div className="p-4 border-t border-gray-200 bg-white">
+        <div className="p-3.5 sm:p-4 pb-6 sm:pb-4 border-t border-gray-200 bg-white">
           <form
             onSubmit={(e) => {
               e.preventDefault();
               handleSearch();
             }}
-            className="flex items-center border border-gray-300 rounded-full pl-4 pr-1.5 py-1.5 shadow-xs focus-within:border-black focus-within:shadow-md transition"
+            className="flex items-center border border-gray-300 rounded-full pl-3.5 sm:pl-4 pr-1.5 py-1 sm:py-1.5 shadow-xs focus-within:border-black focus-within:shadow-md transition"
           >
             <input
               type="text"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Where do you want to stay in Goa?"
-              className="flex-1 text-sm outline-none text-[#222222] placeholder:text-gray-400 bg-transparent"
+              className="flex-1 text-xs sm:text-sm outline-none text-[#222222] placeholder:text-gray-400 bg-transparent"
             />
             <button
               type="submit"
               disabled={isSearching || !query.trim()}
               aria-label="Search accommodations"
-              className="p-2.5 bg-[#FF385C] hover:bg-[#E00B41] disabled:opacity-40 text-white rounded-full transition cursor-pointer"
+              className="p-2 sm:p-2.5 bg-[#FF385C] hover:bg-[#E00B41] disabled:opacity-40 text-white rounded-full transition cursor-pointer"
             >
-              <Search className="w-4 h-4 stroke-[2.5]" />
+              <Search className="w-3.5 h-3.5 sm:w-4 sm:h-4 stroke-[2.5]" />
             </button>
           </form>
         </div>

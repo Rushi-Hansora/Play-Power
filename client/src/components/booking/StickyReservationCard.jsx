@@ -28,15 +28,15 @@ export function StickyReservationCard() {
     <aside
       id="reservation-card"
       aria-label="Reservation card"
-      className="sticky top-28 bg-white border border-gray-300 rounded-2xl p-6 shadow-xl space-y-6 w-full max-w-[370px] ml-auto select-none"
+      className="bg-white border border-gray-300 rounded-2xl p-4 sm:p-6 shadow-xl space-y-5 sm:space-y-6 w-full max-w-full lg:max-w-[370px] mx-auto lg:ml-auto select-none"
     >
       {/* Header with price and reviews */}
       <div className="flex items-baseline justify-between">
         <div>
-          <span className="text-2xl font-bold text-gray-900">
+          <span className="text-xl sm:text-2xl font-bold text-gray-900">
             {formatCurrency(basePricePerNight)}
           </span>
-          <span className="text-sm text-gray-600 font-normal"> / night</span>
+          <span className="text-xs sm:text-sm text-gray-600 font-normal"> / night</span>
         </div>
 
         <div className="flex items-center gap-1 text-xs text-gray-700">
@@ -51,7 +51,7 @@ export function StickyReservationCard() {
       <div className="border border-gray-400 rounded-xl overflow-hidden text-left text-xs">
         {/* Date Row */}
         <div className="grid grid-cols-2 border-b border-gray-400">
-          <div className="p-3 border-r border-gray-400 bg-white hover:bg-gray-50 transition cursor-pointer">
+          <div className="p-2.5 sm:p-3 border-r border-gray-400 bg-white hover:bg-gray-50 transition cursor-pointer">
             <label className="block text-[10px] font-bold tracking-wider text-gray-800 uppercase">
               Check-in
             </label>
@@ -64,7 +64,7 @@ export function StickyReservationCard() {
             />
           </div>
 
-          <div className="p-3 bg-white hover:bg-gray-50 transition cursor-pointer">
+          <div className="p-2.5 sm:p-3 bg-white hover:bg-gray-50 transition cursor-pointer">
             <label className="block text-[10px] font-bold tracking-wider text-gray-800 uppercase">
               Checkout
             </label>
@@ -83,7 +83,7 @@ export function StickyReservationCard() {
           <button
             type="button"
             onClick={() => setIsGuestSelectorOpen(!isGuestSelectorOpen)}
-            className="w-full p-3 flex items-center justify-between bg-white hover:bg-gray-50 transition text-left cursor-pointer"
+            className="w-full p-2.5 sm:p-3 flex items-center justify-between bg-white hover:bg-gray-50 transition text-left cursor-pointer"
           >
             <div>
               <span className="block text-[10px] font-bold tracking-wider text-gray-800 uppercase">
@@ -171,7 +171,7 @@ export function StickyReservationCard() {
       {/* Primary Reserve Button */}
       <button
         onClick={() => setIsBookingModalOpen(true)}
-        className="w-full py-3.5 px-4 bg-gradient-to-r from-[#FF385C] to-[#E00B41] text-white rounded-xl font-bold text-base hover:brightness-105 active:scale-98 transition shadow-sm cursor-pointer"
+        className="w-full py-3.5 px-4 bg-gradient-to-r from-[#FF385C] to-[#E00B41] text-white rounded-xl font-bold text-sm sm:text-base hover:brightness-105 active:scale-98 transition shadow-sm cursor-pointer"
       >
         Reserve
       </button>
@@ -181,7 +181,7 @@ export function StickyReservationCard() {
       </p>
 
       {/* Itemized Calculation Breakdown */}
-      <div className="space-y-3 pt-2 text-sm text-gray-700">
+      <div className="space-y-2.5 sm:space-y-3 pt-2 text-xs sm:text-sm text-gray-700">
         <div className="flex justify-between items-center">
           <span className="underline">
             {formatCurrency(basePricePerNight)} x {nights} nights
@@ -199,7 +199,7 @@ export function StickyReservationCard() {
           <span>{formatCurrency(serviceFee)}</span>
         </div>
 
-        <div className="border-t border-gray-200 pt-4 flex justify-between items-center font-bold text-base text-gray-900">
+        <div className="border-t border-gray-200 pt-3 sm:pt-4 flex justify-between items-center font-bold text-sm sm:text-base text-gray-900">
           <span>Total before taxes</span>
           <span>{formatCurrency(totalBeforeTaxes)}</span>
         </div>
