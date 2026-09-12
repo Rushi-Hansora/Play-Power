@@ -33,9 +33,9 @@ export const mockListing = {
     }
   },
   capacity: {
-    guests: 4,
+    guests: 3,
     bedrooms: 1,
-    beds: 2,
+    beds: 1,
     baths: 1
   },
   pricing: {
@@ -47,13 +47,13 @@ export const mockListing = {
     currencySymbol: "₹"
   },
   host: {
-    name: "Nitish",
+    name: "Mirashya Homes",
     isSuperhost: true,
-    avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&h=200&q=80",
+    avatar: "https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?auto=format&fit=crop&w=200&h=200&q=80",
     tenureYears: 4,
     responseRate: "100%",
     responseTime: "within an hour",
-    bio: "Passionate hospitality host in North Goa. I ensure every guest experiences luxury, privacy, and impeccable cleanliness.",
+    bio: "Passionate hospitality team at Mirashya Homes in Candolim, North Goa. We ensure every guest experiences luxury, privacy, and impeccable cleanliness.",
     coHosts: ["Mirashya Team", "Gaurav"]
   },
   photos: [

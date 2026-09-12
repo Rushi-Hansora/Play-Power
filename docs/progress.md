@@ -46,8 +46,15 @@
   - Prevented horizontal viewport overflow across all screen sizes with `overflow-x: hidden` in `index.css`.
   - Re-positioned and optimized `FloatingConciergeTrigger` above mobile reservation bar without obstructing main page content.
 
+- [x] **Phase 7 — Visual Parity & Custom Features Enhancement**:
+  - Adopted official user-provided Airbnb logo in Header with smooth scroll-to-top handler.
+  - Implemented interactive 10% promotional discount banner above reservation card with terms modal and dynamic booking price deductions.
+  - Aligned Guest Favourite badge with laurel wreath branches and exact ratings copy (`4.95 ★★★★★ | 19 Reviews`).
+  - Updated host identity to Mirashya Homes with dedicated green brand avatar.
+  - Built "More stays nearby" section matching Image 3 with 5 stays per page, carousel pagination (`1 / 3`), circular navigation arrows, and stay preview modals.
+
 ## Verification Status
-- Frontend Tests: `7 / 7 PASSED`
+- Frontend Tests: `8 / 8 PASSED`
 - Frontend Production Build: `SUCCESS`
 - Mobile Viewport: `Fully responsive down to 360px width`
 - Documentation Suite: `19 documents + 1 SVG + 1 PNG diagram`

@@ -2,6 +2,7 @@ import React from "react";
 import { ChevronDown, Plus, Minus } from "lucide-react";
 import { useBooking } from "../../contexts/BookingContext";
 import { formatCurrency } from "../../utils/formatters";
+import { DiscountBanner } from "./DiscountBanner";
 
 export function StickyReservationCard() {
   const {
@@ -18,6 +19,8 @@ export function StickyReservationCard() {
     nightsTotal,
     cleaningFee,
     serviceFee,
+    isDiscountClaimed,
+    discountAmount,
     totalBeforeTaxes,
     isGuestSelectorOpen,
     setIsGuestSelectorOpen,
@@ -25,27 +28,33 @@ export function StickyReservationCard() {
   } = useBooking();
 
   return (
-    <aside
-      id="reservation-card"
-      aria-label="Reservation card"
-      className="bg-white border border-gray-300 rounded-2xl p-4 sm:p-6 shadow-xl space-y-5 sm:space-y-6 w-full max-w-full lg:max-w-[370px] mx-auto lg:ml-auto select-none"
-    >
-      {/* Header with price and reviews */}
-      <div className="flex items-baseline justify-between">
-        <div>
-          <span className="text-xl sm:text-2xl font-bold text-gray-900">
-            {formatCurrency(basePricePerNight)}
-          </span>
-          <span className="text-xs sm:text-sm text-gray-600 font-normal"> / night</span>
-        </div>
+    <div className="w-full max-w-full lg:max-w-[370px] mx-auto lg:ml-auto">
+      {/* Promotional Discount Box matching Image 2 */}
+      <DiscountBanner />
 
-        <div className="flex items-center gap-1 text-xs text-gray-700">
-          <span>★</span>
-          <span className="font-semibold">{listing.ratings.overall}</span>
-          <span>·</span>
-          <span className="text-gray-500 underline">{listing.ratings.reviewCount} reviews</span>
+      <aside
+        id="reservation-card"
+        aria-label="Reservation card"
+        className="bg-white border border-gray-300 rounded-2xl p-4 sm:p-6 shadow-xl space-y-5 sm:space-y-6 select-none"
+      >
+        {/* Header with price and nights matching Image 2 */}
+        <div className="flex items-baseline justify-between">
+          <div>
+            <span className="text-xl sm:text-2xl font-bold text-gray-900 underline decoration-gray-900">
+              {formatCurrency(nightsTotal)}
+            </span>
+            <span className="text-xs sm:text-sm text-gray-700 font-normal ml-1.5">
+              for {nights} nights
+            </span>
+          </div>
+
+          <div className="flex items-center gap-1 text-xs text-gray-700">
+            <span>★</span>
+            <span className="font-semibold">{listing.ratings.overall}</span>
+            <span>·</span>
+            <span className="text-gray-500 underline">{listing.ratings.reviewCount} reviews</span>
+          </div>
         </div>
-      </div>
 
       {/* Date & Guest Selection Widget Box */}
       <div className="border border-gray-400 rounded-xl overflow-hidden text-left text-xs">
@@ -180,30 +189,43 @@ export function StickyReservationCard() {
         You won't be charged yet
       </p>
 
-      {/* Itemized Calculation Breakdown */}
-      <div className="space-y-2.5 sm:space-y-3 pt-2 text-xs sm:text-sm text-gray-700">
-        <div className="flex justify-between items-center">
-          <span className="underline">
-            {formatCurrency(basePricePerNight)} x {nights} nights
-          </span>
-          <span>{formatCurrency(nightsTotal)}</span>
-        </div>
+        {/* Itemized Calculation Breakdown */}
+        <div className="space-y-2.5 sm:space-y-3 pt-2 text-xs sm:text-sm text-gray-700">
+          <div className="flex justify-between items-center">
+            <span className="underline">
+              {formatCurrency(basePricePerNight)} x {nights} nights
+            </span>
+            <span>{formatCurrency(nightsTotal)}</span>
+          </div>
 
-        <div className="flex justify-between items-center">
-          <span className="underline">Cleaning fee</span>
-          <span>{formatCurrency(cleaningFee)}</span>
-        </div>
+          {/* Claimed 10% Discount row */}
+          {isDiscountClaimed && (
+            <div className="flex justify-between items-center text-emerald-700 font-semibold bg-emerald-50 px-2.5 py-1.5 rounded-lg border border-emerald-200">
+              <span className="flex items-center gap-1">
+                <span>Special 10% discount</span>
+              </span>
+              <span>-{formatCurrency(discountAmount)}</span>
+            </div>
+          )}
 
-        <div className="flex justify-between items-center">
-          <span className="underline">Airbnb service fee</span>
-          <span>{formatCurrency(serviceFee)}</span>
-        </div>
+          <div className="flex justify-between items-center">
+            <span className="underline">Cleaning fee</span>
+            <span>{formatCurrency(cleaningFee)}</span>
+          </div>
 
-        <div className="border-t border-gray-200 pt-3 sm:pt-4 flex justify-between items-center font-bold text-sm sm:text-base text-gray-900">
-          <span>Total before taxes</span>
-          <span>{formatCurrency(totalBeforeTaxes)}</span>
+          <div className="flex justify-between items-center">
+            <span className="underline">Airbnb service fee</span>
+            <span>{formatCurrency(serviceFee)}</span>
+          </div>
+
+          <div className="border-t border-gray-200 pt-3 sm:pt-4 flex justify-between items-center font-bold text-sm sm:text-base text-gray-900">
+            <span>Total before taxes</span>
+            <span className={isDiscountClaimed ? "text-emerald-700" : ""}>
+              {formatCurrency(totalBeforeTaxes)}
+            </span>
+          </div>
         </div>
-      </div>
-    </aside>
+      </aside>
+    </div>
   );
 }

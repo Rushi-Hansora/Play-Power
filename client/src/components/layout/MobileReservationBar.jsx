@@ -7,6 +7,7 @@ export function MobileReservationBar() {
     basePricePerNight,
     checkIn,
     checkOut,
+    isDiscountClaimed,
     setIsBookingModalOpen,
   } = useBooking();
 
@@ -22,6 +23,11 @@ export function MobileReservationBar() {
             {formatCurrency(basePricePerNight)}
           </span>
           <span className="text-xs text-gray-500 font-normal"> / night</span>
+          {isDiscountClaimed && (
+            <span className="text-[10px] text-emerald-700 font-bold bg-emerald-50 border border-emerald-200 px-1.5 py-0.5 rounded ml-1">
+              10% OFF
+            </span>
+          )}
         </div>
         <button
           onClick={() => {

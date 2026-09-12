@@ -15,7 +15,15 @@ describe("Booking Price Calculations", () => {
   });
 
   it("handles guest capacity constraints properly", () => {
-    const maxCapacity = mockListing.capacity.guests; // 4
-    expect(maxCapacity).toBe(4);
+    const maxCapacity = mockListing.capacity.guests; // 3
+    expect(maxCapacity).toBe(3);
+  });
+
+  it("calculates 10% promotional discount properly", () => {
+    const basePrice = mockListing.pricing.basePricePerNight;
+    const nights = 5;
+    const nightsTotal = basePrice * nights;
+    const discount = Math.round(nightsTotal * 0.1);
+    expect(discount).toBe(2850);
   });
 });

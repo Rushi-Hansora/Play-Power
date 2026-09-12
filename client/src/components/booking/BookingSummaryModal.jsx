@@ -15,6 +15,8 @@ export function BookingSummaryModal() {
     nightsTotal,
     cleaningFee,
     serviceFee,
+    isDiscountClaimed,
+    discountAmount,
     totalBeforeTaxes,
     isBookingModalOpen,
     setIsBookingModalOpen,
@@ -84,6 +86,12 @@ export function BookingSummaryModal() {
               <span>{formatCurrency(basePricePerNight)} x {nights} nights</span>
               <span>{formatCurrency(nightsTotal)}</span>
             </div>
+            {isDiscountClaimed && (
+              <div className="flex justify-between text-emerald-700 font-semibold bg-emerald-50 px-2 py-1 rounded">
+                <span>Special 10% discount</span>
+                <span>-{formatCurrency(discountAmount)}</span>
+              </div>
+            )}
             <div className="flex justify-between">
               <span>Cleaning fee</span>
               <span>{formatCurrency(cleaningFee)}</span>

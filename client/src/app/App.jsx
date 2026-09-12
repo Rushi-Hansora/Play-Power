@@ -11,6 +11,7 @@ import { SleepingArrangements, AmenitiesSection } from "../components/property/S
 import { ReviewsSection } from "../components/reviews/ReviewsSection";
 import { LocationSection } from "../components/property/LocationSection";
 import { HostAndPoliciesSection } from "../components/property/HostAndPoliciesSection";
+import { NearbyStaysSection } from "../components/property/NearbyStaysSection";
 import { StickyReservationCard } from "../components/booking/StickyReservationCard";
 import { BookingSummaryModal } from "../components/booking/BookingSummaryModal";
 import { AIConciergeDrawer } from "../components/concierge/AIConciergeDrawer";
@@ -52,6 +53,7 @@ export function App() {
         <ReviewsSection ratings={listing.ratings} reviews={listing.reviews} />
         <LocationSection location={listing.location} />
         <HostAndPoliciesSection host={listing.host} policies={listing.policies} />
+        <NearbyStaysSection />
       </main>
 
       {/* Modals and Overlay Experiences */}

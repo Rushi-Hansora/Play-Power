@@ -5,9 +5,9 @@ import { calculateNights } from "../utils/formatters";
 const BookingContext = createContext(null);
 
 export function BookingProvider({ children, listing = mockListing }) {
-  // Default 5-night stay matching reference
-  const [checkIn, setCheckIn] = useState("2026-05-15");
-  const [checkOut, setCheckOut] = useState("2026-05-20");
+  // Default 5-night stay matching reference (10/18/2026 to 10/23/2026)
+  const [checkIn, setCheckIn] = useState("2026-10-18");
+  const [checkOut, setCheckOut] = useState("2026-10-23");
   const [guests, setGuests] = useState({
     adults: 2,
     children: 0,
@@ -18,6 +18,7 @@ export function BookingProvider({ children, listing = mockListing }) {
   const [isDatePickerOpen, setIsDatePickerOpen] = useState(false);
   const [isGuestSelectorOpen, setIsGuestSelectorOpen] = useState(false);
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
+  const [isDiscountClaimed, setIsDiscountClaimed] = useState(false);
 
   const totalGuests = guests.adults + guests.children;
   const nights = useMemo(() => calculateNights(checkIn, checkOut), [checkIn, checkOut]);
@@ -27,7 +28,12 @@ export function BookingProvider({ children, listing = mockListing }) {
   const nightsTotal = basePricePerNight * nights;
   const cleaningFee = listing.pricing.cleaningFee;
   const serviceFee = Math.round(nightsTotal * 0.098); // ~9.8% service fee
-  const totalBeforeTaxes = nightsTotal + cleaningFee + serviceFee;
+  const discountAmount = isDiscountClaimed ? Math.round(nightsTotal * 0.1) : 0;
+  const totalBeforeTaxes = nightsTotal - discountAmount + cleaningFee + serviceFee;
+
+  const toggleDiscount = () => {
+    setIsDiscountClaimed((prev) => !prev);
+  };
 
   const updateGuests = (type, delta) => {
     setGuests((prev) => {
@@ -58,6 +64,9 @@ export function BookingProvider({ children, listing = mockListing }) {
     cleaningFee,
     serviceFee,
     totalBeforeTaxes,
+    isDiscountClaimed,
+    discountAmount,
+    toggleDiscount,
     isDatePickerOpen,
     setIsDatePickerOpen,
     isGuestSelectorOpen,

@@ -10,13 +10,15 @@ export function Header() {
     <header className="sticky top-0 z-30 bg-white border-b border-gray-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-10 h-16 md:h-20 flex items-center justify-between gap-2 sm:gap-4">
         {/* Brand Logo */}
-        <div className="flex items-center gap-1.5 sm:gap-2 cursor-pointer select-none shrink-0">
-          <svg className="w-7 h-7 sm:w-8 sm:h-8 text-[#FF385C]" viewBox="0 0 32 32" fill="currentColor">
-            <path d="M16 1c2.008 0 3.463.963 4.751 3.269l.533.992c2.75 5.176 6.812 13.067 7.644 14.809 1.547 3.242 1.488 6.096-.15 8.127-1.636 2.029-4.301 2.803-7.531 2.803-2.618 0-4.476-.71-5.247-1.282-.771.572-2.629 1.282-5.247 1.282-3.23 0-5.895-.774-7.531-2.803-1.638-2.031-1.697-4.885-.15-8.127.832-1.742 4.894-9.633 7.644-14.809l.533-.992C12.537 1.963 13.992 1 16 1zm0 2c-1.37 0-2.392.658-3.52 2.677l-.547 1.018C9.21 11.83 5.18 19.664 4.38 21.34c-1.22 2.557-1.129 4.67.11 6.207 1.237 1.535 3.395 2.153 5.992 2.153 2.502 0 4.14-.72 4.646-1.127l.872-.705.872.705c.506.407 2.144 1.127 4.646 1.127 2.597 0 4.755-.618 5.992-2.153 1.239-1.537 1.33-3.65.11-6.207-.8-1.676-4.83-9.51-7.553-14.645l-.547-1.018C18.392 3.658 17.37 3 16 3zm0 13c2.209 0 4 1.791 4 4s-1.791 4-4 4-4-1.791-4-4 1.791-4 4-4zm0 2c-1.105 0-2 .895-2 2s.895 2 2 2 2-.895 2-2-.895-2-2-2z"/>
-          </svg>
-          <span className="text-[#FF385C] font-bold text-lg sm:text-xl tracking-tight hidden sm:inline">
-            airbnb
-          </span>
+        <div
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          className="flex items-center cursor-pointer select-none shrink-0"
+        >
+          <img
+            src="/airbnb-logo.jpg"
+            alt="Airbnb"
+            className="h-8 sm:h-9 md:h-10 w-auto object-contain mix-blend-multiply"
+          />
         </div>
 
         {/* Center Search Pill — Desktop Full */}
