@@ -104,9 +104,14 @@
   - **Reviews Hero Laurel Wreath Header (`ReviewsSection.jsx`)**:
     - Added the centered laurel wreath badge matching Photo 2: large `4.95` flanked by two organic laurel branches, `Guest favourite` heading, `This home is a guest favourite based on ratings, reviews and reliability`, and `How reviews work` link.
 
+- **Authentic Company Logos in Payment Modal (`PaymentLogos.jsx`, `BookingSummaryModal.jsx`)**:
+  - **Credit/Debit Card**: Added vector accepted card network logos: **Visa**, **Mastercard**, **RuPay**, and **American Express** (Amex). Added dynamic card brand detection in the card number input.
+  - **UPI Apps**: Added authentic brand logos for **Google Pay**, **PhonePe**, **Paytm**, and **BHIM**, plus official **UPI** green/orange chevron badge.
+  - **Net Banking**: Added high-fidelity vector bank emblems for India's 6 major institutions: **HDFC Bank**, **ICICI Bank**, **State Bank of India (SBI)**, **Axis Bank**, **Kotak Mahindra Bank**, and **Punjab National Bank (PNB)**.
+
 ## Verification Status
 - Frontend Tests: `8 / 8 PASSED`
-- Frontend Production Build: `SUCCESS` (Vite v6.4.3 bundled in 1.77s)
+- Frontend Production Build: `SUCCESS` (Vite v6.4.3 bundled in 2.01s)
 - Mobile Viewport: `Fully responsive down to 360px width`
 - Documentation Suite: `19 documents + 1 SVG + 1 PNG diagram`
 - Plagiarism Audit: `CLEAN (100% independently coded)`

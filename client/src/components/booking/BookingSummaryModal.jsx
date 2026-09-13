@@ -14,6 +14,23 @@ import {
   Tag,
   AlertCircle,
 } from "lucide-react";
+import {
+  VisaLogo,
+  MastercardLogo,
+  RupayLogo,
+  AmexLogo,
+  UpiLogoBadge,
+  GooglePayLogo,
+  PhonePeLogo,
+  PaytmLogo,
+  BhimLogo,
+  HdfcBankLogo,
+  IciciBankLogo,
+  SbiBankLogo,
+  AxisBankLogo,
+  KotakBankLogo,
+  PnbBankLogo,
+} from "./PaymentLogos";
 
 export function BookingSummaryModal() {
   const {
@@ -265,14 +282,14 @@ export function BookingSummaryModal() {
               <button
                 type="button"
                 onClick={() => setActiveTab("upi")}
-                className={`py-2.5 px-3 rounded-xl border text-xs sm:text-sm font-semibold flex items-center justify-center gap-2 transition cursor-pointer ${
+                className={`py-2.5 px-2 sm:px-3 rounded-xl border text-xs sm:text-sm font-semibold flex items-center justify-center gap-1.5 transition cursor-pointer ${
                   activeTab === "upi"
                     ? "border-black bg-black text-white shadow-xs"
                     : "border-gray-200 bg-white text-gray-700 hover:border-gray-400"
                 }`}
               >
-                <QrCode className="w-4 h-4" />
-                <span>UPI (0% Fee)</span>
+                <UpiLogoBadge className="h-3.5 w-auto" />
+                <span className="text-[11px] text-emerald-600 font-bold hidden sm:inline">(0% Fee)</span>
               </button>
 
               <button
@@ -290,9 +307,30 @@ export function BookingSummaryModal() {
             </div>
           </div>
 
-          {/* Method 1: Credit / Debit Card Form */}
+          {/* Method 1: Credit / Debit Card Form with Brand Logos */}
           {activeTab === "card" && (
             <div className="p-4 border border-gray-200 rounded-2xl bg-white space-y-3.5">
+              {/* Accepted Card Company Logos */}
+              <div className="flex items-center justify-between pb-3 border-b border-gray-100">
+                <span className="text-[11px] font-semibold text-gray-500 uppercase tracking-wide">
+                  Accepted Cards
+                </span>
+                <div className="flex items-center gap-2 select-none">
+                  <div className="px-2 py-1 border border-gray-200 rounded-md bg-white shadow-2xs hover:border-gray-400 transition">
+                    <VisaLogo className="h-3.5 w-auto" />
+                  </div>
+                  <div className="px-2 py-1 border border-gray-200 rounded-md bg-white shadow-2xs hover:border-gray-400 transition">
+                    <MastercardLogo className="h-4 w-auto" />
+                  </div>
+                  <div className="px-2 py-1 border border-gray-200 rounded-md bg-white shadow-2xs hover:border-gray-400 transition">
+                    <RupayLogo className="h-3.5 w-auto" />
+                  </div>
+                  <div className="px-2 py-1 border border-gray-200 rounded-md bg-white shadow-2xs hover:border-gray-400 transition">
+                    <AmexLogo className="h-4 w-auto" />
+                  </div>
+                </div>
+              </div>
+
               <div>
                 <label className="block text-[11px] font-semibold text-gray-600 mb-1">
                   Card Number
@@ -303,15 +341,18 @@ export function BookingSummaryModal() {
                     value={cardNumber}
                     onChange={(e) => setCardNumber(e.target.value)}
                     placeholder="1234 5678 9012 3456"
-                    className="w-full text-xs sm:text-sm px-3 py-2 border border-gray-300 rounded-lg outline-none focus:border-black"
+                    className="w-full text-xs sm:text-sm px-3 py-2 border border-gray-300 rounded-lg outline-none focus:border-black font-mono"
                   />
-                  <div className="absolute right-2.5 top-2 flex items-center gap-1">
-                    <span className="text-[10px] font-bold px-1.5 py-0.5 bg-blue-100 text-blue-800 rounded">
-                      VISA
-                    </span>
-                    <span className="text-[10px] font-bold px-1.5 py-0.5 bg-red-100 text-red-800 rounded">
-                      MC
-                    </span>
+                  <div className="absolute right-2.5 top-2 flex items-center gap-1.5 select-none">
+                    {cardNumber.startsWith("4") ? (
+                      <VisaLogo className="h-4 w-auto" />
+                    ) : cardNumber.startsWith("5") ? (
+                      <MastercardLogo className="h-4.5 w-auto" />
+                    ) : cardNumber.startsWith("3") ? (
+                      <AmexLogo className="h-4 w-auto" />
+                    ) : (
+                      <RupayLogo className="h-3.5 w-auto" />
+                    )}
                   </div>
                 </div>
               </div>
@@ -326,7 +367,7 @@ export function BookingSummaryModal() {
                     value={cardExpiry}
                     onChange={(e) => setCardExpiry(e.target.value)}
                     placeholder="MM/YY"
-                    className="w-full text-xs sm:text-sm px-3 py-2 border border-gray-300 rounded-lg outline-none focus:border-black"
+                    className="w-full text-xs sm:text-sm px-3 py-2 border border-gray-300 rounded-lg outline-none focus:border-black font-mono"
                   />
                 </div>
                 <div>
@@ -339,7 +380,7 @@ export function BookingSummaryModal() {
                     value={cardCvv}
                     onChange={(e) => setCardCvv(e.target.value)}
                     placeholder="123"
-                    className="w-full text-xs sm:text-sm px-3 py-2 border border-gray-300 rounded-lg outline-none focus:border-black"
+                    className="w-full text-xs sm:text-sm px-3 py-2 border border-gray-300 rounded-lg outline-none focus:border-black font-mono"
                   />
                 </div>
               </div>
@@ -359,24 +400,43 @@ export function BookingSummaryModal() {
             </div>
           )}
 
-          {/* Method 2: UPI Form */}
+          {/* Method 2: UPI Form with App Logos */}
           {activeTab === "upi" && (
             <div className="p-4 border border-gray-200 rounded-2xl bg-white space-y-4">
               <div>
-                <label className="block text-[11px] font-semibold text-gray-600 mb-1.5">
-                  Popular UPI Apps
-                </label>
-                <div className="grid grid-cols-4 gap-2">
-                  {["Google Pay", "PhonePe", "Paytm", "BHIM"].map((app) => (
-                    <button
-                      key={app}
-                      type="button"
-                      onClick={() => setUpiId(`traveler@${app.toLowerCase().replace(/\s/g, "")}`)}
-                      className="py-2 px-1 text-center border border-gray-200 rounded-lg text-xs font-semibold hover:border-black hover:bg-gray-50 transition cursor-pointer"
-                    >
-                      {app}
-                    </button>
-                  ))}
+                <div className="flex items-center justify-between mb-2">
+                  <label className="block text-[11px] font-semibold text-gray-600">
+                    Popular UPI Apps
+                  </label>
+                  <UpiLogoBadge className="h-3.5 w-auto" />
+                </div>
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                  {[
+                    { id: "gpay", name: "Google Pay", handle: "okhdfcbank", Logo: GooglePayLogo },
+                    { id: "phonepe", name: "PhonePe", handle: "ybl", Logo: PhonePeLogo },
+                    { id: "paytm", name: "Paytm", handle: "paytm", Logo: PaytmLogo },
+                    { id: "bhim", name: "BHIM UPI", handle: "upi", Logo: BhimLogo },
+                  ].map((app) => {
+                    const isSelected = upiId.includes(app.handle);
+                    const LogoComponent = app.Logo;
+                    return (
+                      <button
+                        key={app.id}
+                        type="button"
+                        onClick={() => {
+                          setUpiId(`traveler@${app.handle}`);
+                          setIsUpiVerified(true);
+                        }}
+                        className={`p-2.5 flex items-center justify-center rounded-xl border transition cursor-pointer ${
+                          isSelected
+                            ? "border-black bg-gray-50 shadow-xs ring-1 ring-black"
+                            : "border-gray-200 bg-white hover:border-gray-400 hover:bg-gray-50"
+                        }`}
+                      >
+                        <LogoComponent />
+                      </button>
+                    );
+                  })}
                 </div>
               </div>
 
@@ -390,19 +450,19 @@ export function BookingSummaryModal() {
                     value={upiId}
                     onChange={(e) => setUpiId(e.target.value)}
                     placeholder="yourname@upi"
-                    className="flex-1 text-xs sm:text-sm px-3 py-2 border border-gray-300 rounded-lg outline-none focus:border-black"
+                    className="flex-1 text-xs sm:text-sm px-3 py-2 border border-gray-300 rounded-lg outline-none focus:border-black font-mono"
                   />
                   <button
                     type="button"
                     onClick={() => setIsUpiVerified(true)}
-                    className="px-3 py-2 bg-gray-100 hover:bg-gray-200 text-gray-800 text-xs font-semibold rounded-lg transition cursor-pointer"
+                    className="px-3.5 py-2 bg-gray-100 hover:bg-gray-200 text-gray-800 text-xs font-semibold rounded-lg transition cursor-pointer"
                   >
                     Verify
                   </button>
                 </div>
                 {isUpiVerified && (
                   <p className="text-[11px] text-emerald-700 flex items-center gap-1 mt-1 font-medium">
-                    <Check className="w-3 h-3" /> Verified UPI ID
+                    <Check className="w-3.5 h-3.5" /> Verified UPI VPA ID
                   </p>
                 )}
               </div>
@@ -413,49 +473,64 @@ export function BookingSummaryModal() {
                   onClick={() => setShowQr(!showQr)}
                   className="text-xs text-[#FF385C] font-semibold underline hover:text-[#E00B41] cursor-pointer"
                 >
-                  {showQr ? "Hide QR Code" : "Or Scan QR Code to Pay"}
+                  {showQr ? "Hide QR Code" : "Or Scan Dynamic QR Code to Pay"}
                 </button>
               </div>
 
               {showQr && (
-                <div className="text-center p-3 bg-gray-50 border border-gray-200 rounded-xl space-y-2">
-                  <div className="w-32 h-32 mx-auto bg-white p-2 border border-gray-300 rounded-lg flex items-center justify-center">
-                    <QrCode className="w-24 h-24 text-gray-800" />
+                <div className="text-center p-4 bg-gray-50 border border-gray-200 rounded-2xl space-y-2.5">
+                  <div className="w-36 h-36 mx-auto bg-white p-3 border border-gray-300 rounded-xl shadow-xs flex flex-col items-center justify-center">
+                    <QrCode className="w-24 h-24 text-gray-900" />
+                    <span className="text-[10px] font-bold text-gray-500 mt-1">BHIM UPI QR</span>
                   </div>
-                  <p className="text-xs text-gray-600">Scan using any UPI app to pay {formatCurrency(totalBeforeTaxes)}</p>
+                  <p className="text-xs text-gray-600">
+                    Scan with GPay, PhonePe, Paytm or any UPI app to pay{" "}
+                    <span className="font-bold text-gray-900">{formatCurrency(totalBeforeTaxes)}</span>
+                  </p>
                 </div>
               )}
             </div>
           )}
 
-          {/* Method 3: Net Banking Form */}
+          {/* Method 3: Net Banking Form with Bank Logos */}
           {activeTab === "netbanking" && (
             <div className="p-4 border border-gray-200 rounded-2xl bg-white space-y-3.5">
-              <label className="block text-[11px] font-semibold text-gray-600 mb-1">
-                Select Your Bank
-              </label>
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+              <div className="flex items-center justify-between">
+                <label className="block text-[11px] font-semibold text-gray-600">
+                  Select Your Bank
+                </label>
+                <span className="text-[11px] text-gray-400">All Indian Banks Supported</span>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2.5">
                 {[
-                  "HDFC Bank",
-                  "ICICI Bank",
-                  "State Bank of India",
-                  "Axis Bank",
-                  "Kotak Bank",
-                  "Punjab National Bank",
-                ].map((b) => (
-                  <button
-                    key={b}
-                    type="button"
-                    onClick={() => setSelectedBank(b)}
-                    className={`py-2 px-2 text-xs font-semibold rounded-lg border text-center transition cursor-pointer ${
-                      selectedBank === b
-                        ? "border-black bg-black text-white"
-                        : "border-gray-200 bg-gray-50 text-gray-800 hover:border-gray-400"
-                    }`}
-                  >
-                    {b}
-                  </button>
-                ))}
+                  { name: "HDFC Bank", Logo: HdfcBankLogo },
+                  { name: "ICICI Bank", Logo: IciciBankLogo },
+                  { name: "State Bank of India", Logo: SbiBankLogo },
+                  { name: "Axis Bank", Logo: AxisBankLogo },
+                  { name: "Kotak Mahindra Bank", Logo: KotakBankLogo },
+                  { name: "Punjab National Bank", Logo: PnbBankLogo },
+                ].map((bank) => {
+                  const isSelected = selectedBank === bank.name;
+                  const BankLogo = bank.Logo;
+                  return (
+                    <button
+                      key={bank.name}
+                      type="button"
+                      onClick={() => setSelectedBank(bank.name)}
+                      className={`p-2.5 rounded-xl border flex items-center gap-2.5 transition cursor-pointer text-left ${
+                        isSelected
+                          ? "border-black bg-gray-900 text-white shadow-xs"
+                          : "border-gray-200 bg-white hover:border-gray-400 text-gray-800"
+                      }`}
+                    >
+                      <BankLogo />
+                      <span className="text-xs font-semibold truncate leading-tight">
+                        {bank.name}
+                      </span>
+                    </button>
+                  );
+                })}
               </div>
             </div>
           )}
