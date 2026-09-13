@@ -232,7 +232,7 @@ export const mockListing = {
       id: "rev-4",
       author: "Mohd",
       tenure: "5 years on Airbnb",
-      avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=120&h=120&q=80",
+      avatar: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=120&h=120&q=80",
       rating: 5,
       date: "May 2026",
       comment: "Great place. Exactly as described in the listing. Candolim beach is just a brief walk away."
@@ -245,6 +245,132 @@ export const mockListing = {
       rating: 5,
       date: "April 2026",
       comment: "Super quiet society, high speed wifi was perfect for remote work. The jacuzzi under the stars is unmatched!"
+    },
+    {
+      id: "rev-6",
+      author: "Rohan",
+      tenure: "1 year on Airbnb",
+      avatar: "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=120&h=120&q=80",
+      rating: 5,
+      date: "April 2026",
+      comment: "The jacuzzi on the terrace was super clean and relaxing after a day exploring North Goa. Mirashya Homes was an outstanding and courteous host team."
+    },
+    {
+      id: "rev-7",
+      author: "Priya M",
+      tenure: "3 years on Airbnb",
+      avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=120&h=120&q=80",
+      rating: 5,
+      date: "April 2026",
+      comment: "Loved the quiet gated community feel of Amor do Goa. Very safe for solo female travelers and families. The kitchenette has everything you need."
+    },
+    {
+      id: "rev-8",
+      author: "Kunal",
+      tenure: "2 years on Airbnb",
+      avatar: "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=120&h=120&q=80",
+      rating: 5,
+      date: "March 2026",
+      comment: "Awesome location in Candolim! Close to great cafes, beach shacks, and supermarkets. The A/C cooled down the room in minutes."
+    },
+    {
+      id: "rev-9",
+      author: "Neha Sharma",
+      tenure: "4 years on Airbnb",
+      avatar: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=120&h=120&q=80",
+      rating: 5,
+      date: "March 2026",
+      comment: "Everything matches the photos 100%. The host arranged early check-in without any hesitation. Will definitely book again next trip."
+    },
+    {
+      id: "rev-10",
+      author: "Arjun",
+      tenure: "6 months on Airbnb",
+      avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=120&h=120&q=80",
+      rating: 5,
+      date: "March 2026",
+      comment: "Super clean, aesthetic minimalist interior, and the private hot tub is an absolute treat. 10/10 stay."
+    },
+    {
+      id: "rev-11",
+      author: "Sneha Patel",
+      tenure: "2 years on Airbnb",
+      avatar: "https://images.unsplash.com/photo-1548142813-c348350df52b?auto=format&fit=crop&w=120&h=120&q=80",
+      rating: 5,
+      date: "February 2026",
+      comment: "Crisp white linen, high water pressure, fast reliable WiFi, and a peaceful private terrace. We loved every minute."
+    },
+    {
+      id: "rev-12",
+      author: "Rahul Verma",
+      tenure: "5 years on Airbnb",
+      avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=120&h=120&q=80",
+      rating: 5,
+      date: "February 2026",
+      comment: "Security staff at Amor do Goa were very polite and helpful. The self check-in was seamless. Excellent value for money in North Goa."
+    },
+    {
+      id: "rev-13",
+      author: "Divya K",
+      tenure: "1 year on Airbnb",
+      avatar: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=120&h=120&q=80",
+      rating: 5,
+      date: "January 2026",
+      comment: "A true slice of paradise in Candolim. The jacuzzi was impeccably sanitized and ready when we arrived. Host responds instantly."
+    },
+    {
+      id: "rev-14",
+      author: "Aman Gupta",
+      tenure: "3 years on Airbnb",
+      avatar: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=120&h=120&q=80",
+      rating: 5,
+      date: "January 2026",
+      comment: "Best stay experience in North Goa so far. Peaceful and secluded yet minutes away from all popular beach clubs."
+    },
+    {
+      id: "rev-15",
+      author: "Ritu Sengupta",
+      tenure: "4 years on Airbnb",
+      avatar: "https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?auto=format&fit=crop&w=120&h=120&q=80",
+      rating: 5,
+      date: "December 2025",
+      comment: "Celebrated our anniversary here and the romantic ambiance was magical. Mirashya Homes even recommended great local Goan seafood spots."
+    },
+    {
+      id: "rev-16",
+      author: "Siddharth",
+      tenure: "2 years on Airbnb",
+      avatar: "https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?auto=format&fit=crop&w=120&h=120&q=80",
+      rating: 5,
+      date: "December 2025",
+      comment: "Very comfortable bed, spotless bathroom, and great swimming pool downstairs. The automatic power backup is a great bonus."
+    },
+    {
+      id: "rev-17",
+      author: "Meera Joshi",
+      tenure: "3 years on Airbnb",
+      avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=120&h=120&q=80",
+      rating: 5,
+      date: "November 2025",
+      comment: "Felt like home away from home. Spotlessly clean with lots of natural tropical light. Candolim beach is an easy 7-minute stroll."
+    },
+    {
+      id: "rev-18",
+      author: "Nikhil T",
+      tenure: "1 year on Airbnb",
+      avatar: "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=120&h=120&q=80",
+      rating: 5,
+      date: "November 2025",
+      comment: "One of the best Airbnb properties we have stayed at in India. Loved the jacuzzi jets and the quiet morning coffee on the terrace."
+    },
+    {
+      id: "rev-19",
+      author: "Tanvi",
+      tenure: "4 years on Airbnb",
+      avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=120&h=120&q=80",
+      rating: 5,
+      date: "October 2025",
+      comment: "Fantastic hospitality from Mirashya Homes! Clean, modern, serene, and exactly as pictured. Would rate 6 stars if I could."
     }
   ],
   policies: {

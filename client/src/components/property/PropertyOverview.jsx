@@ -11,6 +11,30 @@ function OutdoorEntertainmentIcon({ className }) {
   );
 }
 
+function MiniLaurelLeft({ className = "w-4 h-9 text-[#222222]" }) {
+  return (
+    <svg className={className} viewBox="0 0 16 36" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M 12 34 C 6 25 4 12 12 2" />
+      <path d="M 10 30 C 5 29 4 26 7 24" />
+      <path d="M 7 23 C 3 22 2 18 6 16" />
+      <path d="M 6 16 C 2 15 2 11 5 9" />
+      <path d="M 8 9 C 5 7 5 4 9 3" />
+    </svg>
+  );
+}
+
+function MiniLaurelRight({ className = "w-4 h-9 text-[#222222]" }) {
+  return (
+    <svg className={className} viewBox="0 0 16 36" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" style={{ transform: "scaleX(-1)" }} aria-hidden="true">
+      <path d="M 12 34 C 6 25 4 12 12 2" />
+      <path d="M 10 30 C 5 29 4 26 7 24" />
+      <path d="M 7 23 C 3 22 2 18 6 16" />
+      <path d="M 6 16 C 2 15 2 11 5 9" />
+      <path d="M 8 9 C 5 7 5 4 9 3" />
+    </svg>
+  );
+}
+
 export function PropertyOverview({ listing }) {
   const safeCapacity = listing?.capacity || { guests: 3, bedrooms: 1, beds: 1, baths: 1 };
   const safeHost = listing?.host || { name: "Mirashya Homes", tenureYears: 2 };
@@ -18,33 +42,17 @@ export function PropertyOverview({ listing }) {
 
   return (
     <div className="pb-6 border-b border-gray-200">
-      {/* Guest Favourite Pill Card — Matching Photo 3 */}
+      {/* Guest Favourite Pill Card — Matching Image 2 */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-4 sm:p-5 bg-white border border-gray-200 rounded-3xl mb-7 shadow-2xs">
         <div className="flex items-center gap-4">
           {/* Laurel Wreath Guest Favourite Badge */}
-          <div className="flex items-center gap-1 text-[#222222] select-none shrink-0">
-            {/* Left Laurel Branch */}
-            <svg className="w-5 h-8 text-gray-800" viewBox="0 0 24 40" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round">
-              <path d="M18 4 C10 10, 4 20, 6 36" />
-              <path d="M18 4 C14 8, 14 12, 11 12" />
-              <path d="M14 14 C10 17, 8 21, 6 20" />
-              <path d="M9 22 C6 25, 4 29, 4 28" />
-              <path d="M6 30 C5 33, 4 35, 6 36" />
-            </svg>
-
+          <div className="flex items-center gap-1.5 text-[#222222] select-none shrink-0">
+            <MiniLaurelLeft />
             <div className="text-center font-bold text-xs sm:text-sm text-[#222222] leading-tight px-1">
               <div>Guest</div>
               <div>favourite</div>
             </div>
-
-            {/* Right Laurel Branch */}
-            <svg className="w-5 h-8 text-gray-800" viewBox="0 0 24 40" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round">
-              <path d="M6 4 C14 10, 20 20, 18 36" />
-              <path d="M6 4 C10 8, 10 12, 13 12" />
-              <path d="M10 14 C14 17, 16 21, 18 20" />
-              <path d="M15 22 C18 25, 20 29, 20 28" />
-              <path d="M18 30 C19 33, 20 35, 18 36" />
-            </svg>
+            <MiniLaurelRight />
           </div>
 
           <div className="text-xs sm:text-sm text-gray-800 font-medium leading-snug max-w-xs">
@@ -75,9 +83,9 @@ export function PropertyOverview({ listing }) {
         </div>
       </div>
 
-      {/* Host Quick Snapshot with Mirashya Homes avatar matching Photo 3 */}
+      {/* Host Quick Snapshot with Mirashya Homes avatar matching Image 3 */}
       <div className="flex items-center gap-4 py-4 border-b border-gray-100">
-        <div className="w-12 h-12 sm:w-13 sm:h-13 rounded-full bg-[#1A3C34] text-white flex items-center justify-center font-bold text-[9px] sm:text-[10px] tracking-wider border-2 border-emerald-900/20 shadow-xs shrink-0 select-none">
+        <div className="w-12 h-12 rounded-full bg-[#1A3830] text-white flex items-center justify-center font-bold text-[10px] tracking-widest select-none shrink-0 shadow-xs">
           MIRASHYA
         </div>
         <div>
