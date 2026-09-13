@@ -61,7 +61,7 @@ export function SubNavHeader() {
       aria-label="Listing subsections navigation"
       className="hidden md:block sticky top-20 z-20 bg-white border-b border-gray-200 shadow-xs animate-in slide-in-from-top-2 duration-150"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-10 h-14 sm:h-16 md:h-20 flex items-center justify-between gap-4">
+      <div className="max-w-[1120px] mx-auto px-4 sm:px-6 md:px-8 xl:px-0 h-14 sm:h-16 md:h-20 flex items-center justify-between gap-4">
         {/* Navigation Tabs — Scrollable on narrow mobile screens */}
         <div className="flex items-center gap-5 sm:gap-8 h-full overflow-x-auto no-scrollbar py-1">
           {navItems.map((item) => {

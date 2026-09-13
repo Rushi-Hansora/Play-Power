@@ -31,8 +31,8 @@ export function App() {
       {/* Sticky Subnav Bar with ScrollSpy (Photos, Amenities, Reviews, Location + Sticky Reserve on desktop) */}
       <SubNavHeader />
 
-      {/* Main Listing View Container with Responsive Padding */}
-      <main className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 md:px-10 w-full space-y-6 sm:space-y-8">
+      {/* Main Listing View Container with Canonical Airbnb 1120px Width */}
+      <main className="flex-1 max-w-[1120px] mx-auto px-4 sm:px-6 md:px-8 xl:px-0 w-full space-y-6 sm:space-y-8">
         {/* P0: 5-Photo Hero Collage */}
         <HeroGallery />
 

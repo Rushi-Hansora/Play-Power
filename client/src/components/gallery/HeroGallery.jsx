@@ -71,12 +71,12 @@ export function HeroGallery() {
         )}
 
         {/* 4 Smaller Photos (Hidden on mobile, visible on tablet/desktop) */}
-        <div className="hidden md:grid md:col-span-2 grid-cols-2 gap-2 h-full">
+        <div className="hidden md:grid md:col-span-2 grid-cols-2 grid-rows-2 gap-2 h-full">
           {heroPhotos.slice(1, 5).map((photo, index) => (
             <div
               key={photo.id || index}
               onClick={() => openLightbox(index + 1)}
-              className="relative h-[225px] overflow-hidden cursor-pointer group bg-gray-200"
+              className="relative h-full overflow-hidden cursor-pointer group bg-gray-200"
             >
               <img
                 src={photo.url}

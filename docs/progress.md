@@ -115,11 +115,17 @@
   - **Image 3 Mirashya Host Avatar**: Refined Mirashya Homes circular badge in `#1A3830` forest green with clean centered white uppercase `MIRASHYA` typography and proper spacing next to "Hosted by Mirashya Homes / 2 years hosting".
   - **Image 4 All 19 Reviews Expansion**: Populated all 19 authentic guest reviews in `mockListing.js` (including Vaibhav S, Samiksha, Vedant, Mohd, etc.); updated "Show all 19 reviews" modal to display all 19 reviews with live search filtering and review counter.
 
+- **Canonical Airbnb Container Width & Horizontal Proportions (`App.jsx`, `Header.jsx`, `SubNavHeader.jsx`, `Footer.jsx`, `HeroGallery.jsx`)**:
+  - **Listing Content Width (`max-w-[1120px]`)**: Standardized the main listing container, SubNavHeader, and Footer from `max-w-7xl` (1280px) to Airbnb's canonical `max-w-[1120px] mx-auto px-4 sm:px-6 md:px-8 xl:px-0`. This matches the exact desktop side-gutter proportions (~13.5% margins on each side) shown in the reference screenshot.
+  - **Spacious Desktop Header (`max-w-[1760px]`)**: Updated the top Header navigation to `max-w-[1760px] mx-auto px-4 sm:px-6 md:px-10 lg:px-16 xl:px-20`, allowing the Airbnb logo and host controls to span out toward the screen edges while keeping the search pill centered.
+  - **Photo Grid Aspect Ratio**: Updated the 4 smaller photos grid in `HeroGallery.jsx` to `grid-cols-2 grid-rows-2 gap-2 h-full` with `relative h-full` so all 4 tiles fill the grid without overflow.
+
 ## Verification Status
 - Frontend Tests: `8 / 8 PASSED`
-- Frontend Production Build: `SUCCESS` (Vite v6.4.3 bundled in 1.97s)
+- Frontend Production Build: `SUCCESS` (Vite v6.4.3 bundled in 2.83s)
 - Mobile Viewport: `Fully responsive down to 360px width`
 - Documentation Suite: `19 documents + 1 SVG + 1 PNG diagram`
 - Plagiarism Audit: `CLEAN (100% independently coded)`
+
 
 

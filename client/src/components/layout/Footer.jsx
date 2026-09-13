@@ -4,7 +4,7 @@ import { Globe } from "lucide-react";
 export function Footer() {
   return (
     <footer className="bg-[#F7F7F7] border-t border-gray-200 mt-12 sm:mt-16 text-sm text-gray-700">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-10 py-8 sm:py-12">
+      <div className="max-w-[1120px] mx-auto px-4 sm:px-6 md:px-8 xl:px-0 py-8 sm:py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10">
           <div>
             <h3 className="font-semibold text-gray-900 mb-3 text-sm">Support</h3>

@@ -8,7 +8,7 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-30 bg-white border-b border-gray-200">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-10 h-16 md:h-20 flex items-center justify-between gap-2 sm:gap-4">
+      <div className="max-w-[1760px] mx-auto px-4 sm:px-6 md:px-10 lg:px-16 xl:px-20 h-16 md:h-20 flex items-center justify-between gap-2 sm:gap-4">
         {/* Brand Logo matching Screenshot */}
         <div
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
