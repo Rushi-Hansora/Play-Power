@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import { useBooking } from "../../contexts/BookingContext";
 import { Modal } from "../common/Modal";
 
-export function DiscountBanner() {
+export function DiscountBanner({ className = "" }) {
   const { isDiscountClaimed, toggleDiscount } = useBooking();
   const [isTermsOpen, setIsTermsOpen] = useState(false);
 
   return (
     <>
-      <div className="border border-gray-200 bg-white rounded-2xl p-3 sm:p-4 shadow-2xs flex items-center justify-between gap-3 mb-4 transition">
+      <div className={`border border-gray-200 bg-white rounded-2xl p-3 sm:p-4 shadow-2xs flex items-center justify-between gap-3 transition ${className}`}>
         {/* Left: Tag Icon and Text */}
         <div className="flex items-center gap-2.5 sm:gap-3 min-w-0">
           {/* Green Luggage/Price Tag Icon matching screenshot */}

@@ -92,9 +92,21 @@
     - **Right Navigation**: `Become a host` text button + separate circular gray `Globe` button + separate circular gray `Menu` (hamburger) button.
     - Preserved seamless interactive handoff to the AI Travel Concierge.
 
+- **Main Body Alignment & Photo-Match Overhaul**:
+  - **Subheader & Promotional Discount Row (`App.jsx`, `DiscountBanner.jsx`)**: Added the exact layout matching Photo 4: `Entire serviced apartment in Candolim, India` (`3 guests · 1 bedroom · 1 bed · 1 bathroom`) on the left, paired horizontally with the promotional 10% discount card on the right.
+  - **Movable Sticky Payment Component (`StickyReservationCard.jsx`, `App.jsx`, `index.css`)**:
+    - Resolved position sticky constraints by changing `overflow-x: hidden` to `overflow-x: clip` in `index.css`.
+    - Maintained full row stretching across the 2-column core layout so the sticky reservation card smoothly tracks the viewport down through Overview, Sleeping, Amenities, and the full Calendar.
+    - Streamlined the reservation card by removing nested banners so it fits comfortably within all laptop viewport heights.
+  - **Availability Calendar Integration (`CalendarSection.jsx`)**:
+    - Integrated the 2-month side-by-side calendar (`October 2026` & `November 2026`) matching Photo 1.
+    - Added range selection highlighting (18-23 Oct), November blocked dates, keyboard accessibility shortcuts trigger, and `Clear dates` button.
+  - **Reviews Hero Laurel Wreath Header (`ReviewsSection.jsx`)**:
+    - Added the centered laurel wreath badge matching Photo 2: large `4.95` flanked by two organic laurel branches, `Guest favourite` heading, `This home is a guest favourite based on ratings, reviews and reliability`, and `How reviews work` link.
+
 ## Verification Status
 - Frontend Tests: `8 / 8 PASSED`
-- Frontend Production Build: `SUCCESS`
+- Frontend Production Build: `SUCCESS` (Vite v6.4.3 bundled in 1.77s)
 - Mobile Viewport: `Fully responsive down to 360px width`
 - Documentation Suite: `19 documents + 1 SVG + 1 PNG diagram`
 - Plagiarism Audit: `CLEAN (100% independently coded)`

@@ -2,7 +2,6 @@ import React from "react";
 import { ChevronDown, Plus, Minus } from "lucide-react";
 import { useBooking } from "../../contexts/BookingContext";
 import { formatCurrency } from "../../utils/formatters";
-import { DiscountBanner } from "./DiscountBanner";
 
 export function StickyReservationCard() {
   const {
@@ -29,9 +28,6 @@ export function StickyReservationCard() {
 
   return (
     <div className="w-full max-w-full lg:max-w-[370px] mx-auto lg:ml-auto">
-      {/* Promotional Discount Box matching Image 2 */}
-      <DiscountBanner />
-
       <aside
         id="reservation-card"
         aria-label="Reservation card"

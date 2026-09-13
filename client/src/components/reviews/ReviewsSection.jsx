@@ -24,7 +24,45 @@ const REVIEW_PILLS = [
   { id: "balcony", label: "Balcony", count: 3, emoji: "🌅" },
 ];
 
-export function ReviewsSection({ ratings = { overall: 4.96, reviewCount: 19 }, reviews = [] }) {
+function LaurelBranchLeft({ className = "w-12 h-20 sm:w-16 sm:h-26" }) {
+  return (
+    <svg className={className} viewBox="0 0 50 85" fill="none">
+      <defs>
+        <linearGradient id="laurelLeafGradL" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#4A4A4A" />
+          <stop offset="100%" stopColor="#1E1E1E" />
+        </linearGradient>
+      </defs>
+      <path d="M42 80 C32 72 20 50 28 8" stroke="#222222" strokeWidth="2.5" strokeLinecap="round" />
+      <path d="M40 76 C30 73 22 75 18 69 C25 64 34 65 40 76 Z" fill="url(#laurelLeafGradL)" />
+      <path d="M32 58 C22 53 14 52 10 44 C19 40 28 42 32 58 Z" fill="url(#laurelLeafGradL)" />
+      <path d="M25 41 C15 35 9 32 5 22 C14 20 23 24 25 41 Z" fill="url(#laurelLeafGradL)" />
+      <path d="M21 24 C13 17 9 10 7 2 C16 4 23 10 21 24 Z" fill="url(#laurelLeafGradL)" />
+      <path d="M25 11 C21 4 23 0 27 -2 C30 2 30 8 25 11 Z" fill="url(#laurelLeafGradL)" />
+    </svg>
+  );
+}
+
+function LaurelBranchRight({ className = "w-12 h-20 sm:w-16 sm:h-26" }) {
+  return (
+    <svg className={className} viewBox="0 0 50 85" fill="none" style={{ transform: "scaleX(-1)" }}>
+      <defs>
+        <linearGradient id="laurelLeafGradR" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#4A4A4A" />
+          <stop offset="100%" stopColor="#1E1E1E" />
+        </linearGradient>
+      </defs>
+      <path d="M42 80 C32 72 20 50 28 8" stroke="#222222" strokeWidth="2.5" strokeLinecap="round" />
+      <path d="M40 76 C30 73 22 75 18 69 C25 64 34 65 40 76 Z" fill="url(#laurelLeafGradR)" />
+      <path d="M32 58 C22 53 14 52 10 44 C19 40 28 42 32 58 Z" fill="url(#laurelLeafGradR)" />
+      <path d="M25 41 C15 35 9 32 5 22 C14 20 23 24 25 41 Z" fill="url(#laurelLeafGradR)" />
+      <path d="M21 24 C13 17 9 10 7 2 C16 4 23 10 21 24 Z" fill="url(#laurelLeafGradR)" />
+      <path d="M25 11 C21 4 23 0 27 -2 C30 2 30 8 25 11 Z" fill="url(#laurelLeafGradR)" />
+    </svg>
+  );
+}
+
+export function ReviewsSection({ ratings = { overall: 4.95, reviewCount: 19 }, reviews = [] }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [expandedReviews, setExpandedReviews] = useState({});
   const [selectedPill, setSelectedPill] = useState(null);
@@ -52,15 +90,31 @@ export function ReviewsSection({ ratings = { overall: 4.96, reviewCount: 19 }, r
 
   return (
     <section id="reviews" className="py-8 border-b border-gray-200" aria-label="Guest reviews">
-      {/* Top link: How reviews work */}
-      <div className="flex justify-end mb-4">
+      {/* Centered Laurel Wreath Hero Header — Matching Photo 2 */}
+      <div className="flex flex-col items-center justify-center text-center pt-2 pb-8 select-none">
+        <div className="flex items-center justify-center gap-3 sm:gap-4">
+          <LaurelBranchLeft />
+          <span className="text-5xl sm:text-6xl md:text-7xl font-bold text-[#222222] tracking-tight">
+            {ratings?.overall ? Number(ratings.overall).toFixed(2) : "4.95"}
+          </span>
+          <LaurelBranchRight />
+        </div>
+
+        <h2 className="text-xl sm:text-2xl font-bold text-[#222222] mt-3">
+          Guest favourite
+        </h2>
+
+        <p className="text-xs sm:text-sm text-gray-600 max-w-sm sm:max-w-md mx-auto mt-1 leading-snug">
+          This home is a guest favourite based on ratings, reviews and reliability
+        </p>
+
         <a
           href="#reviews"
           onClick={(e) => {
             e.preventDefault();
             alert("Reviews are verified from guests who completed a stay at this property.");
           }}
-          className="text-xs sm:text-sm text-gray-800 underline font-medium hover:text-black"
+          className="text-xs sm:text-sm text-gray-900 underline font-semibold hover:text-black mt-3 transition cursor-pointer"
         >
           How reviews work
         </a>
