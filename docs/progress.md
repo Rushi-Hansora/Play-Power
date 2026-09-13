@@ -86,6 +86,12 @@
   - Implemented "Host / Owner Permission Discount" toggle applying a 10% direct host discount in real-time with verified green badge.
   - Implemented multi-stage bank-grade encryption payment gateway simulation and confirmed booking receipt with unique booking reference ID.
 
+- **Header Visual Parity Overhaul (`Header.jsx`)**:
+  - Replaced legacy pill with user-provided official specification:
+    - **Center Search Pill**: Miniature modern house/cabin with red front door and tree icon + `Anywhere` | `Anytime` | `Add guests` + coral circular search button with white magnifying glass.
+    - **Right Navigation**: `Become a host` text button + separate circular gray `Globe` button + separate circular gray `Menu` (hamburger) button.
+    - Preserved seamless interactive handoff to the AI Travel Concierge.
+
 ## Verification Status
 - Frontend Tests: `8 / 8 PASSED`
 - Frontend Production Build: `SUCCESS`
