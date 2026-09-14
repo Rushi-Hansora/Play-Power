@@ -11,26 +11,38 @@ function OutdoorEntertainmentIcon({ className }) {
   );
 }
 
-function MiniLaurelLeft({ className = "w-4 h-9 text-[#222222]" }) {
+function MiniLaurelLeft({ className = "w-5 h-9 text-[#222222]" }) {
   return (
-    <svg className={className} viewBox="0 0 16 36" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <path d="M 12 34 C 6 25 4 12 12 2" />
-      <path d="M 10 30 C 5 29 4 26 7 24" />
-      <path d="M 7 23 C 3 22 2 18 6 16" />
-      <path d="M 6 16 C 2 15 2 11 5 9" />
-      <path d="M 8 9 C 5 7 5 4 9 3" />
+    <svg className={className} viewBox="0 0 68 110" fill="none" aria-hidden="true">
+      <path
+        d="M 42 22 C 34 38 27 58 28 80 C 29 88 33 96 41 98 C 47 99 52 95 51 89 C 50 84 45 82 42 85 C 40 87 42 90 44 90"
+        stroke="currentColor"
+        strokeWidth="4"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path d="M 42 22 C 35 16 33 9 37 2 C 44 7 47 14 42 22 Z" fill="currentColor" />
+      <path d="M 33 44 C 23 39 16 31 10 24 C 18 27 26 34 33 44 Z" fill="currentColor" />
+      <path d="M 28 66 C 19 61 11 55 4 56 C 11 54 20 57 28 66 Z" fill="currentColor" />
+      <path d="M 30 84 C 24 87 18 90 12 90 C 18 83 25 80 30 84 Z" fill="currentColor" />
     </svg>
   );
 }
 
-function MiniLaurelRight({ className = "w-4 h-9 text-[#222222]" }) {
+function MiniLaurelRight({ className = "w-5 h-9 text-[#222222]" }) {
   return (
-    <svg className={className} viewBox="0 0 16 36" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" style={{ transform: "scaleX(-1)" }} aria-hidden="true">
-      <path d="M 12 34 C 6 25 4 12 12 2" />
-      <path d="M 10 30 C 5 29 4 26 7 24" />
-      <path d="M 7 23 C 3 22 2 18 6 16" />
-      <path d="M 6 16 C 2 15 2 11 5 9" />
-      <path d="M 8 9 C 5 7 5 4 9 3" />
+    <svg className={className} viewBox="0 0 68 110" fill="none" style={{ transform: "scaleX(-1)" }} aria-hidden="true">
+      <path
+        d="M 42 22 C 34 38 27 58 28 80 C 29 88 33 96 41 98 C 47 99 52 95 51 89 C 50 84 45 82 42 85 C 40 87 42 90 44 90"
+        stroke="currentColor"
+        strokeWidth="4"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path d="M 42 22 C 35 16 33 9 37 2 C 44 7 47 14 42 22 Z" fill="currentColor" />
+      <path d="M 33 44 C 23 39 16 31 10 24 C 18 27 26 34 33 44 Z" fill="currentColor" />
+      <path d="M 28 66 C 19 61 11 55 4 56 C 11 54 20 57 28 66 Z" fill="currentColor" />
+      <path d="M 30 84 C 24 87 18 90 12 90 C 18 83 25 80 30 84 Z" fill="currentColor" />
     </svg>
   );
 }

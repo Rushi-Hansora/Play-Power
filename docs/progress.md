@@ -120,14 +120,14 @@
   - **Spacious Desktop Header (`max-w-[1760px]`)**: Updated the top Header navigation to `max-w-[1760px] mx-auto px-4 sm:px-6 md:px-10 lg:px-16 xl:px-20`, allowing the Airbnb logo and host controls to span out toward the screen edges while keeping the search pill centered.
 - **Sleeping Arrangements & Photo Category Alignment (`mockListing.js`)**:
   - **Where You'll Sleep Photo Mismatch Resolution**: Corrected the swapped imagery under the "Where you'll sleep" section. Assigned the authentic bedroom photograph featuring the queen bed, white linens, and folded swan towel (`photo-1582719478250-c89cae4dc85b`) to **Bedroom 1** (1 queen bed). Assigned the lounge seating suite photograph with the tufted sofa (`photo-1590490360182-c33d57733427`) to **Living room** (1 sofa bed).
-  - **Gallery & Lightbox Category Parity**: Synchronized photo captions and categories in `mockListing.js` so `photo-1` is categorized as "Bedroom" (Master bedroom suite with premium queen bed) and `photo-3` is categorized as "Living room" (Spacious contemporary living room suite with plush seating), ensuring the Photo Tour and Lightbox modal consistently reflect accurate room labels.
+- **3D Sculpted Laurel Wreath Rating Header (`ReviewsSection.jsx`, `PropertyOverview.jsx`)**:
+  - **4.95 Rating Laurel Parity**: Replaced flat 2D wreaths with high-fidelity, 3D sculpted 4-leaf laurel branches flanking the `4.95` rating number, exactly matching the user's reference photograph.
+  - **Curled Tail & Leaf Facets**: Built custom SVGs featuring the iconic inward curled bottom tail, 4 plump lanceolate leaves with bi-tonal specular highlights on the upper facets (`#585e64` -> `#18191b`), deep ambient shadow on lower facets (`#2c2e31` -> `#0a0a0b`), delicate spine crease lines, cylindrical shaded stem, and realistic soft drop-shadow (`drop-shadow(0 3px 5px rgba(0, 0, 0, 0.32))`).
+  - **Harmonized Mini Laurel Badge**: Updated `MiniLaurelLeft` and `MiniLaurelRight` in `PropertyOverview.jsx` to inherit the same 4-leaf + curled hook silhouette for complete visual consistency across the page.
 
 ## Verification Status
 - Frontend Tests: `8 / 8 PASSED`
-- Frontend Production Build: `SUCCESS`
+- Frontend Production Build: `SUCCESS` (Vite v6.4.3 bundled in 2.21s)
 - Mobile Viewport: `Fully responsive down to 360px width`
 - Documentation Suite: `19 documents + 1 SVG + 1 PNG diagram`
 - Plagiarism Audit: `CLEAN (100% independently coded)`
-
-
-

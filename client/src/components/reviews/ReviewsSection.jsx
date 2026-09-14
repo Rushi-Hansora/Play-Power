@@ -25,64 +25,159 @@ const REVIEW_PILLS = [
   { id: "balcony", label: "Balcony", count: 3, emoji: "🌅" },
 ];
 
-function LaurelBranchLeft({ className = "w-11 h-22 sm:w-14 sm:h-28 text-[#222222]" }) {
+function LaurelBranchLeft({ className = "w-12 h-20 sm:w-16 sm:h-26 md:w-[72px] md:h-[116px]" }) {
   return (
-    <svg className={className} viewBox="0 0 54 96" fill="currentColor" aria-hidden="true">
-      {/* Central curving stem */}
+    <svg
+      className={className}
+      viewBox="0 0 68 110"
+      fill="none"
+      aria-hidden="true"
+      style={{ filter: "drop-shadow(0 3px 5px rgba(0, 0, 0, 0.32))" }}
+    >
+      <defs>
+        {/* Specular Highlight for upper leaf half */}
+        <linearGradient id="laurel-leaf-top" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#585e64" />
+          <stop offset="35%" stopColor="#3c4046" />
+          <stop offset="85%" stopColor="#25272a" />
+          <stop offset="100%" stopColor="#18191b" />
+        </linearGradient>
+
+        {/* Ambient shadow for lower leaf half */}
+        <linearGradient id="laurel-leaf-bot" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#2c2e31" />
+          <stop offset="45%" stopColor="#1a1c1e" />
+          <stop offset="100%" stopColor="#0a0a0b" />
+        </linearGradient>
+
+        {/* 3D cylindrical stem gradient */}
+        <linearGradient id="laurel-stem-grad" x1="0%" y1="0%" x2="100%" y2="50%">
+          <stop offset="0%" stopColor="#4e5358" />
+          <stop offset="40%" stopColor="#2e3134" />
+          <stop offset="100%" stopColor="#121314" />
+        </linearGradient>
+      </defs>
+
+      {/* Central stem with bottom curled hook */}
       <path
-        d="M 40 92 C 22 76 12 44 32 6"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2.4"
+        d="M 42 22 C 34 38 27 58 28 80 C 29 88 33 96 41 98 C 47 99 52 95 51 89 C 50 84 45 82 42 85 C 40 87 42 90 44 90"
+        stroke="url(#laurel-stem-grad)"
+        strokeWidth="3.4"
         strokeLinecap="round"
+        strokeLinejoin="round"
       />
-      {/* Node 1 (Bottom pair) */}
-      <path d="M 38 88 C 26 91 16 94 9 96 C 13 89 23 85 35 84 Z" />
-      <path d="M 41 84 C 47 79 51 73 53 67 C 48 74 43 78 37 82 Z" />
 
-      {/* Node 2 */}
-      <path d="M 28 74 C 17 76 8 76 2 81 C 7 73 17 69 26 69 Z" />
-      <path d="M 33 69 C 41 64 46 59 49 53 C 44 59 38 63 30 65 Z" />
+      {/* Leaf 4: Top leaf (Points almost straight up, slightly inwards) */}
+      <g>
+        <path
+          d="M 42 22 C 35 16 33 9 37 2 C 39 8 40 15 42 22 Z"
+          fill="url(#laurel-leaf-bot)"
+        />
+        <path
+          d="M 42 22 C 41 15 40 8 37 2 C 44 7 47 14 42 22 Z"
+          fill="url(#laurel-leaf-top)"
+        />
+        <path
+          d="M 42 22 C 40 15 39 8 37 2"
+          stroke="#555a60"
+          strokeWidth="0.7"
+          strokeOpacity="0.4"
+        />
+      </g>
 
-      {/* Node 3 (Middle) */}
-      <path d="M 21 58 C 10 56 3 53 -2 56 C 3 50 13 48 20 52 Z" />
-      <path d="M 25 52 C 34 46 40 40 43 34 C 38 40 32 44 23 48 Z" />
+      {/* Leaf 3: Upper-mid leaf (Points up-left at ~45 deg) */}
+      <g>
+        <path
+          d="M 33 44 C 23 39 16 31 10 24 C 16 34 23 44 33 44 Z"
+          fill="url(#laurel-leaf-bot)"
+        />
+        <path
+          d="M 33 44 C 24 35 17 26 10 24 C 18 27 26 34 33 44 Z"
+          fill="url(#laurel-leaf-top)"
+        />
+        <path
+          d="M 33 44 C 24 35 17 26 10 24"
+          stroke="#686e75"
+          strokeWidth="0.7"
+          strokeOpacity="0.45"
+        />
+      </g>
 
-      {/* Node 4 */}
-      <path d="M 19 41 C 9 36 3 31 0 33 C 5 27 14 28 19 35 Z" />
-      <path d="M 24 35 C 31 28 36 23 38 17 C 34 23 29 28 22 31 Z" />
+      {/* Leaf 2: Lower-mid leaf (Points out-left at ~15 deg) */}
+      <g>
+        <path
+          d="M 28 66 C 19 65 11 61 4 56 C 10 67 19 72 28 66 Z"
+          fill="url(#laurel-leaf-bot)"
+        />
+        <path
+          d="M 28 66 C 19 61 11 55 4 56 C 11 54 20 57 28 66 Z"
+          fill="url(#laurel-leaf-top)"
+        />
+        <path
+          d="M 28 66 C 19 61 11 55 4 56"
+          stroke="#686e75"
+          strokeWidth="0.7"
+          strokeOpacity="0.45"
+        />
+      </g>
 
-      {/* Node 5 */}
-      <path d="M 21 24 C 14 18 10 13 8 14 C 11 9 19 11 23 18 Z" />
-      <path d="M 27 20 C 32 14 36 9 37 4 C 34 9 30 14 25 17 Z" />
-
-      {/* Tip leaf */}
-      <path d="M 33 7 C 28 2 28 -4 31 -7 C 33 -3 34 2 31 7 Z" />
+      {/* Leaf 1: Bottom leaf (Points down-left at ~-25 deg) */}
+      <g>
+        <path
+          d="M 30 84 C 24 87 18 90 12 90 C 18 97 25 96 30 84 Z"
+          fill="url(#laurel-leaf-bot)"
+        />
+        <path
+          d="M 30 84 C 23 83 17 83 12 90 C 18 83 25 80 30 84 Z"
+          fill="url(#laurel-leaf-top)"
+        />
+        <path
+          d="M 30 84 C 23 83 17 83 12 90"
+          stroke="#686e75"
+          strokeWidth="0.7"
+          strokeOpacity="0.45"
+        />
+      </g>
     </svg>
   );
 }
 
-function LaurelBranchRight({ className = "w-11 h-22 sm:w-14 sm:h-28 text-[#222222]" }) {
+function LaurelBranchRight({ className = "w-12 h-20 sm:w-16 sm:h-26 md:w-[72px] md:h-[116px]" }) {
   return (
-    <svg className={className} viewBox="0 0 54 96" fill="currentColor" style={{ transform: "scaleX(-1)" }} aria-hidden="true">
+    <svg
+      className={className}
+      viewBox="0 0 68 110"
+      fill="none"
+      aria-hidden="true"
+      style={{ transform: "scaleX(-1)", filter: "drop-shadow(0 3px 5px rgba(0, 0, 0, 0.32))" }}
+    >
       <path
-        d="M 40 92 C 22 76 12 44 32 6"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2.4"
+        d="M 42 22 C 34 38 27 58 28 80 C 29 88 33 96 41 98 C 47 99 52 95 51 89 C 50 84 45 82 42 85 C 40 87 42 90 44 90"
+        stroke="url(#laurel-stem-grad)"
+        strokeWidth="3.4"
         strokeLinecap="round"
+        strokeLinejoin="round"
       />
-      <path d="M 38 88 C 26 91 16 94 9 96 C 13 89 23 85 35 84 Z" />
-      <path d="M 41 84 C 47 79 51 73 53 67 C 48 74 43 78 37 82 Z" />
-      <path d="M 28 74 C 17 76 8 76 2 81 C 7 73 17 69 26 69 Z" />
-      <path d="M 33 69 C 41 64 46 59 49 53 C 44 59 38 63 30 65 Z" />
-      <path d="M 21 58 C 10 56 3 53 -2 56 C 3 50 13 48 20 52 Z" />
-      <path d="M 25 52 C 34 46 40 40 43 34 C 38 40 32 44 23 48 Z" />
-      <path d="M 19 41 C 9 36 3 31 0 33 C 5 27 14 28 19 35 Z" />
-      <path d="M 24 35 C 31 28 36 23 38 17 C 34 23 29 28 22 31 Z" />
-      <path d="M 21 24 C 14 18 10 13 8 14 C 11 9 19 11 23 18 Z" />
-      <path d="M 27 20 C 32 14 36 9 37 4 C 34 9 30 14 25 17 Z" />
-      <path d="M 33 7 C 28 2 28 -4 31 -7 C 33 -3 34 2 31 7 Z" />
+      <g>
+        <path d="M 42 22 C 35 16 33 9 37 2 C 39 8 40 15 42 22 Z" fill="url(#laurel-leaf-bot)" />
+        <path d="M 42 22 C 41 15 40 8 37 2 C 44 7 47 14 42 22 Z" fill="url(#laurel-leaf-top)" />
+        <path d="M 42 22 C 40 15 39 8 37 2" stroke="#555a60" strokeWidth="0.7" strokeOpacity="0.4" />
+      </g>
+      <g>
+        <path d="M 33 44 C 23 39 16 31 10 24 C 16 34 23 44 33 44 Z" fill="url(#laurel-leaf-bot)" />
+        <path d="M 33 44 C 24 35 17 26 10 24 C 18 27 26 34 33 44 Z" fill="url(#laurel-leaf-top)" />
+        <path d="M 33 44 C 24 35 17 26 10 24" stroke="#686e75" strokeWidth="0.7" strokeOpacity="0.45" />
+      </g>
+      <g>
+        <path d="M 28 66 C 19 65 11 61 4 56 C 10 67 19 72 28 66 Z" fill="url(#laurel-leaf-bot)" />
+        <path d="M 28 66 C 19 61 11 55 4 56 C 11 54 20 57 28 66 Z" fill="url(#laurel-leaf-top)" />
+        <path d="M 28 66 C 19 61 11 55 4 56" stroke="#686e75" strokeWidth="0.7" strokeOpacity="0.45" />
+      </g>
+      <g>
+        <path d="M 30 84 C 24 87 18 90 12 90 C 18 97 25 96 30 84 Z" fill="url(#laurel-leaf-bot)" />
+        <path d="M 30 84 C 23 83 17 83 12 90 C 18 83 25 80 30 84 Z" fill="url(#laurel-leaf-top)" />
+        <path d="M 30 84 C 23 83 17 83 12 90" stroke="#686e75" strokeWidth="0.7" strokeOpacity="0.45" />
+      </g>
     </svg>
   );
 }
@@ -119,9 +214,9 @@ export function ReviewsSection({ ratings = { overall: 4.95, reviewCount: 19 }, r
     <section id="reviews" className="py-8 border-b border-gray-200" aria-label="Guest reviews">
       {/* Centered Laurel Wreath Hero Header — Matching Photo 2 */}
       <div className="flex flex-col items-center justify-center text-center pt-2 pb-8 select-none">
-        <div className="flex items-center justify-center gap-3 sm:gap-4">
+        <div className="flex items-center justify-center gap-2 sm:gap-3 md:gap-4">
           <LaurelBranchLeft />
-          <span className="text-5xl sm:text-6xl md:text-7xl font-bold text-[#222222] tracking-tight">
+          <span className="text-6xl sm:text-7xl md:text-[84px] font-bold text-[#222222] tracking-[-0.03em] leading-none">
             {ratings?.overall ? Number(ratings.overall).toFixed(2) : "4.95"}
           </span>
           <LaurelBranchRight />
