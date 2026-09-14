@@ -125,9 +125,13 @@
   - **Curled Tail & Leaf Facets**: Built custom SVGs featuring the iconic inward curled bottom tail, 4 plump lanceolate leaves with bi-tonal specular highlights on the upper facets (`#585e64` -> `#18191b`), deep ambient shadow on lower facets (`#2c2e31` -> `#0a0a0b`), delicate spine crease lines, cylindrical shaded stem, and realistic soft drop-shadow (`drop-shadow(0 3px 5px rgba(0, 0, 0, 0.32))`).
   - **Harmonized Mini Laurel Badge**: Updated `MiniLaurelLeft` and `MiniLaurelRight` in `PropertyOverview.jsx` to inherit the same 4-leaf + curled hook silhouette for complete visual consistency across the page.
 
+- **Vercel SPA Deployment & Routing Configuration (`vercel.json`, `client/vercel.json`)**:
+  - **404 NOT_FOUND Resolution**: Added Vercel configuration files to both root and `client/` directories to prevent edge routing 404 errors. Configured SPA URL rewrites (`"rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]`) ensuring any direct URL refresh or subpath properly delegates to Vite's `index.html` client-side router.
+  - **Monorepo Build Delegation**: Configured root build and output directives (`"buildCommand": "cd client && npm install && npm run build"`, `"outputDirectory": "client/dist"`) so Vercel builds seamlessly whether the project root directory is set to repository root or `./client`.
+
 ## Verification Status
 - Frontend Tests: `8 / 8 PASSED`
-- Frontend Production Build: `SUCCESS` (Vite v6.4.3 bundled in 2.21s)
+- Frontend Production Build: `SUCCESS`
 - Mobile Viewport: `Fully responsive down to 360px width`
 - Documentation Suite: `19 documents + 1 SVG + 1 PNG diagram`
 - Plagiarism Audit: `CLEAN (100% independently coded)`
