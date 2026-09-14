@@ -73,8 +73,8 @@ export const mockListing = {
     {
       id: "photo-1",
       url: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1200&q=85",
-      caption: "Spacious contemporary living room with plush seating and warm ambient lighting",
-      category: "Living room"
+      caption: "Master bedroom suite with premium queen bed, fresh linens, and sunlit balcony",
+      category: "Bedroom"
     },
     {
       id: "photo-2",
@@ -85,8 +85,8 @@ export const mockListing = {
     {
       id: "photo-3",
       url: "https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=800&q=80",
-      caption: "Master bedroom suite with premium queen bed and minimalist wood accents",
-      category: "Bedroom"
+      caption: "Spacious contemporary living room suite with plush seating and warm ambient lighting",
+      category: "Living room"
     },
     {
       id: "photo-4",
@@ -116,7 +116,7 @@ export const mockListing = {
       id: "photo-8",
       url: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=800&q=80",
       caption: "Plush convertible sofa bed in the living area comfortably accommodating 2 guests",
-      category: "Bedroom"
+      category: "Living room"
     },
     {
       id: "photo-9",
@@ -136,13 +136,13 @@ export const mockListing = {
       room: "Bedroom 1",
       bedType: "1 queen bed",
       icon: "bed-double",
-      image: "https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=800&q=80"
+      image: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=800&q=80"
     },
     {
       room: "Living room",
       bedType: "1 sofa bed",
       icon: "sofa",
-      image: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=800&q=80"
+      image: "https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=800&q=80"
     }
   ],
   amenities: [
